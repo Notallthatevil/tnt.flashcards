@@ -1,7 +1,8 @@
-package com.trippntechnology.tnt.flashcards
+package com.trippntechnology.tnt.flashcards.ux.activities.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.trippntechnology.tnt.flashcards.R
 
 class MainActivity : AppCompatActivity() {
 
