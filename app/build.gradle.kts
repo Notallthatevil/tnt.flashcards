@@ -1,7 +1,9 @@
+
 plugins {
     id("com.android.application")
-    id("kotlin-android")
     id("kotlin-android-extensions")
+    kotlin("android")
+    kotlin("kapt")
 }
 
 android {
@@ -37,5 +39,11 @@ dependencies {
     implementation("com.jakewharton.timber:timber:4.7.1")
     //Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1")
+    //Dagger 2
+    implementation("com.google.dagger:dagger:2.23.1")
+    kapt("com.google.dagger:dagger-compiler:2.23.1")
+    //ViewModelModule
+    implementation("com.vikingsen.inject:viewmodel-inject:0.1.1")
+    kapt("com.vikingsen.inject:viewmodel-inject-processor:0.1.1")
 
 }
