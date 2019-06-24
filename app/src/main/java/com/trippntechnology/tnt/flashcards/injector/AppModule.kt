@@ -1,7 +1,6 @@
 package com.trippntechnology.tnt.flashcards.injector
 
 import android.app.Application
-import com.trippntechnology.tnt.flashcards.util.CoroutineContextProvider
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -13,12 +12,6 @@ class AppModule(private val application: Application) {
     @Singleton
     internal fun provideApplication(): Application {
         return application
-    }
-
-    @Provides
-    @Singleton
-    fun provideCoroutineContextProvider(): CoroutineContextProvider {
-        return CoroutineContextProvider.MainCoroutineContextProvider
     }
 
 }

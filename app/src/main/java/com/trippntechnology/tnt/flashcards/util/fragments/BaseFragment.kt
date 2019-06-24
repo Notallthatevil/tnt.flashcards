@@ -1,26 +1,11 @@
 package com.trippntechnology.tnt.flashcards.util.fragments
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
-abstract class BaseFragment : LiveDataObserverFragment(), CoroutineScope {
-    private val baseFragmentJob = Job() // create a job as a parent for coroutines
-
-    override val coroutineContext: CoroutineContext
-        get() = Dispatchers.Main + baseFragmentJob
-
-    fun enableActionBarBackArrow(enable: Boolean) {
-        activity?.actionBar?.apply {
-            setHomeButtonEnabled(enable)
-            setDisplayHomeAsUpEnabled(enable)
-        }
-
-    }
-
+abstract class BaseFragment : LiveDataObserverFragment(), CoroutineScope by MainScope() {
     override fun onDestroy() {
-        baseFragmentJob.cancel()
         super.onDestroy()
+        cancel() // CoroutineScope.cancel
     }
 }

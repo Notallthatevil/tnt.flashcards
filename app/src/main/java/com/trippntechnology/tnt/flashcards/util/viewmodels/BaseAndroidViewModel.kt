@@ -2,21 +2,18 @@ package com.trippntechnology.tnt.flashcards.util.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import com.trippntechnology.tnt.flashcards.util.CoroutineContextProvider
+import androidx.lifecycle.ViewModel
+import com.vikingsen.inject.viewmodel.ViewModelInject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancel
 import kotlin.coroutines.CoroutineContext
 
-abstract class BaseAndroidViewModel(application: Application, protected val cc: CoroutineContextProvider, private val defaultContext: CoroutineContext = cc.default) : AndroidViewModel(application),
-    CoroutineScope {
-    protected val baseViewModelJob = Job() // create a job as a parent for coroutines
-
-    override val coroutineContext: CoroutineContext
-        get() = defaultContext + baseViewModelJob
+abstract class BaseAndroidViewModel @ViewModelInject constructor(application: Application) : AndroidViewModel(application),
+    CoroutineScope by DefaultScope() {
 
     override fun onCleared() {
-        baseViewModelJob.cancel()
+        cancel()
         super.onCleared()
     }
-
 }
