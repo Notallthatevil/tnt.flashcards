@@ -11,6 +11,11 @@
     <color name="textLight">#fff</color>
 
     <color name="darkStroke">#212121</color>
-    <color name="darkStrokeShadow">#33000000</color>
+    <color name="darkStrokeShadow">#33212121</color>
+
+    <color name="lightStroke">#ffffff</color>
+    <color name="lightStrokeShadow">#33ffffff</color>
+
+    <color name="transparent">#00ffffff</color>
 
 </resources>
