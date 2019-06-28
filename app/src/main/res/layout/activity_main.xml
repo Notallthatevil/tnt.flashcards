@@ -6,28 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".ux.activities.main.MainActivity">
 
-    <com.google.android.material.card.MaterialCardView
-        style="@style/Widget.MaterialComponents.CardView"
-        android:id="@+id/flashCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccentLight"
-        app:cardElevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="PrivateResource">
+    <com.trippntechnology.tnt.flashcards.views.NoteSelectionView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:stroke_width="@dimen/selection_view_stroke_width"
+        app:line_space="@dimen/selection_view_line_space">
 
-        <com.trippntechnology.tnt.flashcards.views.StaffView
-            android:id="@+id/staffView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </com.google.android.material.card.MaterialCardView>
+    </com.trippntechnology.tnt.flashcards.views.NoteSelectionView>
+
+    <!--    <com.google.android.material.card.MaterialCardView-->
+    <!--        style="@style/Widget.MaterialComponents.CardView"-->
+    <!--        android:id="@+id/flashCard"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:background="@color/colorAccentLight"-->
+    <!--        app:cardElevation="@dimen/card_view_height"-->
+    <!--        app:cardCornerRadius="@dimen/card_view_corner_radius"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        tools:ignore="PrivateResource">-->
+
+    <!--        <com.trippntechnology.tnt.flashcards.views.NoteView-->
+    <!--          android:id="@+id/staffView"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_gravity="center"-->
+    <!--            android:background="@color/transparent"-->
+    <!--            app:line_space="@dimen/note_view_line_space"-->
+    <!--            app:stroke_width="@dimen/note_view_stroke_width"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+    <!--    </com.google.android.material.card.MaterialCardView>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

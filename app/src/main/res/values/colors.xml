@@ -16,6 +16,9 @@
     <color name="lightStroke">#ffffff</color>
     <color name="lightStrokeShadow">#33ffffff</color>
 
+    <color name="selectedStroke">#4caf50</color>
+    <color name="selectedStrokeShadow">#334caf50</color>
+
     <color name="transparent">#00ffffff</color>
 
 </resources>

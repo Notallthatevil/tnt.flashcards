@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_view_height">8dp</dimen>
+    <dimen name="card_view_corner_radius">8dp</dimen>
+
+    <dimen name="selection_view_line_space">18dp</dimen>
+    <dimen name="selection_view_stroke_width">1dp</dimen>
+
+
+    <dimen name="note_view_line_space">48dp</dimen>
+    <dimen name="note_view_stroke_width">4dp</dimen>
+
+</resources>
