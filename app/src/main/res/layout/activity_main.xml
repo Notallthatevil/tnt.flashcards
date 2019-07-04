@@ -6,39 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".ux.activities.main.MainActivity">
 
-    <com.trippntechnology.tnt.flashcards.views.NoteSelectionView
+
+    <com.trippntechnology.tnt.flashcards.views.FlashCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:stroke_width="@dimen/selection_view_stroke_width"
-        app:line_space="@dimen/selection_view_line_space">
+        android:layout_height="match_parent"/>
 
-    </com.trippntechnology.tnt.flashcards.views.NoteSelectionView>
 
-    <!--    <com.google.android.material.card.MaterialCardView-->
-    <!--        style="@style/Widget.MaterialComponents.CardView"-->
-    <!--        android:id="@+id/flashCard"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:background="@color/colorAccentLight"-->
-    <!--        app:cardElevation="@dimen/card_view_height"-->
-    <!--        app:cardCornerRadius="@dimen/card_view_corner_radius"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        tools:ignore="PrivateResource">-->
+<!--    <com.trippntechnology.tnt.flashcards.views.NoteSelectionView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:stroke_width="@dimen/selection_view_stroke_width"-->
+<!--        app:line_space="@dimen/selection_view_line_space">-->
 
-    <!--        <com.trippntechnology.tnt.flashcards.views.NoteView-->
-    <!--          android:id="@+id/staffView"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_gravity="center"-->
-    <!--            android:background="@color/transparent"-->
-    <!--            app:line_space="@dimen/note_view_line_space"-->
-    <!--            app:stroke_width="@dimen/note_view_stroke_width"-->
-    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            app:layout_constraintEnd_toEndOf="parent"-->
-    <!--            app:layout_constraintStart_toStartOf="parent"-->
-    <!--            app:layout_constraintTop_toTopOf="parent" />-->
-    <!--    </com.google.android.material.card.MaterialCardView>-->
+<!--    </com.trippntechnology.tnt.flashcards.views.NoteSelectionView>-->
+
+<!--    &lt;!&ndash;    <com.google.android.material.card.MaterialCardView&ndash;&gt;-->
+<!--    &lt;!&ndash;        style="@style/Widget.MaterialComponents.CardView"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:id="@+id/flashCard"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:background="@color/colorAccentLight"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:cardElevation="@dimen/card_view_height"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:cardCornerRadius="@dimen/card_view_corner_radius"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintTop_toTopOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        tools:ignore="PrivateResource">&ndash;&gt;-->
+
+<!--    &lt;!&ndash;        <com.trippntechnology.tnt.flashcards.views.NoteView&ndash;&gt;-->
+<!--    &lt;!&ndash;          android:id="@+id/staffView"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:layout_gravity="center"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:background="@color/transparent"&ndash;&gt;-->
+<!--    &lt;!&ndash;            app:line_space="@dimen/note_view_line_space"&ndash;&gt;-->
+<!--    &lt;!&ndash;            app:stroke_width="@dimen/note_view_stroke_width"&ndash;&gt;-->
+<!--    &lt;!&ndash;            app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;            app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;            app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;            app:layout_constraintTop_toTopOf="parent" />&ndash;&gt;-->
+<!--    &lt;!&ndash;    </com.google.android.material.card.MaterialCardView>&ndash;&gt;-->
 </androidx.constraintlayout.widget.ConstraintLayout>

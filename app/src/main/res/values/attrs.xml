@@ -3,5 +3,6 @@
     <declare-styleable name="BaseView">
         <attr name="line_space" format="dimension"/>
         <attr name="stroke_width" format="dimension"/>
+        <attr name="staff_padding" format="dimension"/>
     </declare-styleable>
 </resources>
