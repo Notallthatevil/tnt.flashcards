@@ -14,9 +14,9 @@ abstract class BaseView(context: Context, attrs: AttributeSet?, defStyleAttr: In
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context) : this(context, null)
 
-    protected var LINE_SPACING = 0.0f
+    protected val LINE_SPACING: Float
 
-    protected var STROKE_WIDTH = 0.0f
+    protected val STROKE_WIDTH: Float
 
     init {
         context.theme.obtainStyledAttributes(
@@ -24,8 +24,14 @@ abstract class BaseView(context: Context, attrs: AttributeSet?, defStyleAttr: In
             R.styleable.BaseView,
             0, 0
         ).apply {
-            LINE_SPACING = getDimension(R.styleable.BaseView_line_space, dpToPx(48f))
-            STROKE_WIDTH = getDimension(R.styleable.BaseView_stroke_width, dpToPx(4f))
+            LINE_SPACING = getDimension(
+                R.styleable.BaseView_line_space,
+                resources.getDimension(R.dimen.default_line_space)
+            )
+            STROKE_WIDTH = getDimension(
+                R.styleable.BaseView_stroke_width,
+                resources.getDimension(R.dimen.default_stroke_width)
+            )
         }
 
     }

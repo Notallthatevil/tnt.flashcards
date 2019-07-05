@@ -13,7 +13,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        flashCard.setOnClickListener {
+        flashCardCardView.setOnClickListener {
             flashCard.setNote(
                 ClefArea.Clef.values()[Random().nextInt(ClefArea.Clef.values().size)],
                 NoteValue.values()[Random().nextInt(NoteValue.values().size)]
