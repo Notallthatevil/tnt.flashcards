@@ -7,9 +7,9 @@ import android.util.TypedValue
 
 abstract class Area(protected val context:Context) {
 
-    protected val bounds = RectF()
+    val bounds = RectF()
 
-    protected abstract fun draw(canvas: Canvas)
+    abstract fun draw(canvas: Canvas)
 
     protected fun dpToPx(dp: Float): Float {
         return TypedValue.applyDimension(
