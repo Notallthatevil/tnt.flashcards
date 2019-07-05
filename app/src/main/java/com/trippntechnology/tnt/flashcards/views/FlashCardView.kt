@@ -39,14 +39,19 @@ class FlashCardView
     override fun onDraw(canvas: Canvas?) {
         canvas ?: return
         val staffYCenter = height / 2f
-        val widthCenter = width / 2f
-        val xOffset = widthCenter + noteXOffset
+        val staffXCenter = width / 2f
+        val xOffset = staffXCenter + noteXOffset
+
+        canvas.drawLine(0f,staffYCenter,width.toFloat(),staffYCenter, Paint().apply{
+            color = ContextCompat.getColor(context, R.color.colorAccent)
+            strokeWidth = 10f
+        })
 
         //Draw staff
-        staffArea.bounds.top = staffYCenter - LINE_SPACING * 2
+        staffArea.bounds.top = staffYCenter- LINE_SPACING*2
         staffArea.bounds.bottom = staffArea.bounds.top
-        staffArea.bounds.left = 0f+padding
-        staffArea.bounds.right = width.toFloat()-padding
+        staffArea.bounds.left = 0f + padding
+        staffArea.bounds.right = width.toFloat() - padding
         staffArea.draw(canvas)
 
         //Draw clef
@@ -68,21 +73,21 @@ class FlashCardView
         noteArea.bounds.right = xOffset + NOTE_BASE_WIDTH / 2
         noteArea.bounds.bottom = staffYCenter + noteYOffset + NOTE_BASE_HEIGHT / 2
         canvas.save()
-        canvas.rotate(NOTE_BASE_ROTATION_ANGLE,xOffset,staffYCenter + noteYOffset)
+        canvas.rotate(NOTE_BASE_ROTATION_ANGLE, xOffset, staffYCenter + noteYOffset)
         noteArea.draw(canvas)
         canvas.restore()
 
         //Draw stem
         if (staffYCenter + noteYOffset < staffYCenter) {
-            stemArea.bounds.left = xOffset - NOTE_BASE_WIDTH / 2+STROKE_WIDTH/4
-            stemArea.bounds.top = staffYCenter + noteYOffset+STROKE_WIDTH
+            stemArea.bounds.left = xOffset - NOTE_BASE_WIDTH / 2 + STROKE_WIDTH / 4
+            stemArea.bounds.top = staffYCenter + noteYOffset + STROKE_WIDTH
             stemArea.bounds.right = stemArea.bounds.left + NOTE_STEM_WIDTH
             stemArea.bounds.bottom = stemArea.bounds.top + NOTE_STEM_HEIGHT
         } else {
-            stemArea.bounds.left = xOffset + NOTE_BASE_WIDTH / 2-STROKE_WIDTH*1.25f
-            stemArea.bounds.bottom = staffYCenter + noteYOffset-STROKE_WIDTH
+            stemArea.bounds.left = xOffset + NOTE_BASE_WIDTH / 2 - STROKE_WIDTH * 1.25f
+            stemArea.bounds.bottom = staffYCenter + noteYOffset - STROKE_WIDTH
             stemArea.bounds.right = stemArea.bounds.left + NOTE_STEM_WIDTH
-            stemArea.bounds.top = stemArea.bounds.bottom-NOTE_STEM_HEIGHT
+            stemArea.bounds.top = stemArea.bounds.bottom - NOTE_STEM_HEIGHT
         }
         stemArea.draw(canvas)
 
@@ -94,7 +99,7 @@ class FlashCardView
         var noteOffset = staffYCenter + noteYOffset
         while (floor(noteOffset) >= floor(offsetBelow)) {
             ledgerLineArea.bounds.top = offsetBelow + LINE_SPACING * ledgerLine
-            ledgerLineArea.bounds.bottom =  ledgerLineArea.bounds.top
+            ledgerLineArea.bounds.bottom = ledgerLineArea.bounds.top
             noteOffset -= LINE_SPACING
             ledgerLine++
             ledgerLineArea.draw(canvas)
@@ -102,7 +107,7 @@ class FlashCardView
         val offsetAbove = staffYCenter - LINE_SPACING * 3
         while (floor(noteOffset) <= floor(offsetAbove)) {
             ledgerLineArea.bounds.top = offsetAbove - LINE_SPACING * ledgerLine
-            ledgerLineArea.bounds.bottom =  ledgerLineArea.bounds.top
+            ledgerLineArea.bounds.bottom = ledgerLineArea.bounds.top
             noteOffset += LINE_SPACING
             ledgerLine++
             ledgerLineArea.draw(canvas)

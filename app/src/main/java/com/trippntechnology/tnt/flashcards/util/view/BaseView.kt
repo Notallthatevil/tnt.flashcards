@@ -1,54 +1,34 @@
 package com.trippntechnology.tnt.flashcards.util.view
 
 import android.content.Context
-import android.graphics.Paint
-import android.graphics.Rect
-import android.graphics.RectF
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
-import androidx.core.content.ContextCompat
 import com.trippntechnology.tnt.flashcards.R
 import com.trippntechnology.tnt.flashcards.views.*
 import kotlin.math.min
 import kotlin.math.roundToInt
 
-abstract class BaseView(context: Context, private val attrs: AttributeSet?, defStyleAttr: Int) :
+abstract class BaseView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
     View(context, attrs, defStyleAttr) {
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context) : this(context, null)
 
-    val LINE_SPACING:Float
-        get() {
-            context.theme.obtainStyledAttributes(
-                attrs,
-                R.styleable.BaseView,
-                0, 0
-            ).apply {
-                return getDimension(R.styleable.BaseView_line_space, dpToPx(48f))
-            }
-        }
-    protected val STROKE_WIDTH  :Float
-        get() {
-            context.theme.obtainStyledAttributes(
-                attrs,
-                R.styleable.BaseView,
-                0, 0
-            ).apply {
-                return getDimension(R.styleable.BaseView_stroke_width, dpToPx(4f))
-            }
+    protected var LINE_SPACING = 0.0f
+
+    protected var STROKE_WIDTH = 0.0f
+
+    init {
+        context.theme.obtainStyledAttributes(
+            attrs,
+            R.styleable.BaseView,
+            0, 0
+        ).apply {
+            LINE_SPACING = getDimension(R.styleable.BaseView_line_space, dpToPx(48f))
+            STROKE_WIDTH = getDimension(R.styleable.BaseView_stroke_width, dpToPx(4f))
         }
 
-    val STAFF_PADDING:Float
-        get() {
-            context.theme.obtainStyledAttributes(
-                attrs,
-                R.styleable.BaseView,
-                0, 0
-            ).apply {
-                return getDimension(R.styleable.BaseView_staff_padding, dpToPx(4f))
-            }
-        }
+    }
 
     //NOTE POSITION
     protected val HALF_STEP_UP = -LINE_SPACING / 2
@@ -63,18 +43,17 @@ abstract class BaseView(context: Context, private val attrs: AttributeSet?, defS
 
     protected val NOTE_STEM_HEIGHT = LINE_SPACING * 4
     protected val NOTE_STEM_WIDTH = STROKE_WIDTH
-    protected val NOTE_STEM_CORNER_RADIUS = STROKE_WIDTH
 
     //CLEFS
     protected val TREBLE_HEIGHT = (LINE_SPACING * 6)
-    protected val BASS_HEIGHT = (LINE_SPACING*4)
+    protected val BASS_HEIGHT = (LINE_SPACING * 4)
     protected val CLEF_WIDTH = (LINE_SPACING * 3.5f)
 
-    protected val clefArea = ClefArea(context,STROKE_WIDTH)
-    protected val staffArea = StaffArea(context,STROKE_WIDTH,LINE_SPACING)
-    protected val noteArea = NoteArea(context,STROKE_WIDTH)
-    protected val ledgerLineArea = LedgerLineArea(context,STROKE_WIDTH)
-    protected val stemArea = StemArea(context,STROKE_WIDTH)
+    protected val clefArea = ClefArea(context, STROKE_WIDTH)
+    protected val staffArea = StaffArea(context, STROKE_WIDTH, LINE_SPACING)
+    protected val noteArea = NoteArea(context, STROKE_WIDTH)
+    protected val ledgerLineArea = LedgerLineArea(context, STROKE_WIDTH)
+    protected val stemArea = StemArea(context, STROKE_WIDTH)
 
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
