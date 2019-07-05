@@ -33,6 +33,9 @@ class FlashCardView
 
     private var noteYOffset = centerStaff
 
+    private val padding = dpToPx(2f)
+
+
     override fun onDraw(canvas: Canvas?) {
         canvas ?: return
         val staffYCenter = height / 2f
@@ -42,8 +45,8 @@ class FlashCardView
         //Draw staff
         staffArea.bounds.top = staffYCenter - LINE_SPACING * 2
         staffArea.bounds.bottom = staffArea.bounds.top
-        staffArea.bounds.left = 0f
-        staffArea.bounds.right = width.toFloat()
+        staffArea.bounds.left = 0f+padding
+        staffArea.bounds.right = width.toFloat()-padding
         staffArea.draw(canvas)
 
         //Draw clef
