@@ -123,7 +123,6 @@ class FlashCardView
                 NoteValue.X_HIGH_C -> noteYOffset = fullStepUp * 9 + halfStepUp
 
             }
-            else -> throw IllegalArgumentException("clef must equal TREBLE_CLEF or BASS_CLEF")
         }
         this.clef = clef
         invalidate()
