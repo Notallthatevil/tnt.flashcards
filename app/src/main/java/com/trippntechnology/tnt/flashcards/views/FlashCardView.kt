@@ -2,15 +2,10 @@ package com.trippntechnology.tnt.flashcards.views
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Paint
 import android.util.AttributeSet
-import androidx.core.content.ContextCompat
-import com.trippntechnology.tnt.flashcards.R
 import com.trippntechnology.tnt.flashcards.objects.ClefValue
 import com.trippntechnology.tnt.flashcards.objects.NoteValue
 import com.trippntechnology.tnt.flashcards.util.view.BaseView
-import kotlin.math.floor
-
 
 class FlashCardView
     (context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
@@ -36,7 +31,7 @@ class FlashCardView
 
         //Draw staff
         staffArea.clef = clef
-        staffArea.bounds.top = staffYCenter- LINE_SPACING*2
+        staffArea.bounds.top = staffYCenter - LINE_SPACING * 2
         staffArea.bounds.bottom = staffArea.bounds.top
         staffArea.bounds.left = 0f + padding
         staffArea.bounds.right = width.toFloat() - padding
@@ -50,7 +45,6 @@ class FlashCardView
         noteArea.staffYCenter = staffYCenter
         noteArea.draw(canvas)
     }
-
 
     fun setNote(clef: ClefValue, note: NoteValue) {
         when (clef) {
@@ -113,11 +107,9 @@ class FlashCardView
                 NoteValue.X_HIGH_A -> noteYOffset = FULL_STEP_UP * 8 + HALF_STEP_UP
                 NoteValue.X_HIGH_B -> noteYOffset = FULL_STEP_UP * 9
                 NoteValue.X_HIGH_C -> noteYOffset = FULL_STEP_UP * 9 + HALF_STEP_UP
-
             }
         }
         this.clef = clef
         invalidate()
     }
-
 }
