@@ -8,6 +8,6 @@ class StemArea(
 ) : FlashCardArea(context, strokeWidth) {
 
     override fun draw(canvas: Canvas) {
-        canvas.drawRoundRect(bounds, dpToPx(12f), dpToPx(12f), blackPaint)
+        canvas.drawRoundRect(bounds, dpToPx(12f), dpToPx(12f), basePaint)
     }
 }

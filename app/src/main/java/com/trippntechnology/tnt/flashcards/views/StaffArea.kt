@@ -16,9 +16,15 @@ class StaffArea(
 
     private val TREBLE_HEIGHT = (lineSpacing * 6)
     private val BASS_HEIGHT = (lineSpacing * 4)
-    private val CLEF_WIDTH = (lineSpacing * 3.5f)
+    val CLEF_WIDTH = (lineSpacing * 3.5f)
+
+    private var posSet = false
 
     override fun draw(canvas: Canvas) {
+        if (!posSet) {
+            throw IllegalArgumentException("You must call setDrawSpace before you can draw")
+        }
+
         var yPos = bounds.top
         var pass = 0
         for (i in 0 until points.size) {
@@ -35,7 +41,7 @@ class StaffArea(
                 }
             }
         }
-        canvas.drawLines(points, blackPaint)
+        canvas.drawLines(points, basePaint)
 
         clefArea.clef = clef
         clefArea.bounds.left = 0f
@@ -48,5 +54,13 @@ class StaffArea(
             clefArea.bounds.bottom = clefArea.bounds.top + TREBLE_HEIGHT
         }
         clefArea.draw(canvas)
+    }
+
+    fun setDrawSpace(left:Float,topLineYPos:Float,right:Float){
+        posSet = true
+        bounds.left = left
+        bounds.right = right
+        bounds.top = topLineYPos
+        bounds.bottom = bounds.top
     }
 }

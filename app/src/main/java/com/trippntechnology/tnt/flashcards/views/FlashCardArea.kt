@@ -11,7 +11,7 @@ abstract class FlashCardArea(
     context: Context, protected val strokeWidth:Float
 ) : Area(context) {
 
-    protected val blackPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+    protected val basePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = ContextCompat.getColor(context, R.color.darkStroke)
         strokeWidth = this@FlashCardArea.strokeWidth
         setShadowLayer(

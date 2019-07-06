@@ -32,23 +32,17 @@ class FlashCardView
 
         //Draw staff
         staffArea.clef = clef
-        staffArea.bounds.top = staffYCenter - LINE_SPACING * 2
-        staffArea.bounds.bottom = staffArea.bounds.top
-        staffArea.bounds.left = 0f + padding
-        staffArea.bounds.right = width.toFloat() - padding
+        staffArea.setDrawSpace(0f + padding,staffYCenter - LINE_SPACING * 2,width.toFloat() - padding)
         staffArea.draw(canvas)
 
         //Draw note
-        noteArea.bounds.left = xOffset - NOTE_BASE_WIDTH / 2
-        noteArea.bounds.top = staffYCenter + noteYOffset - NOTE_BASE_HEIGHT / 2
-        noteArea.bounds.right = xOffset + NOTE_BASE_WIDTH / 2
-        noteArea.bounds.bottom = staffYCenter + noteYOffset + NOTE_BASE_HEIGHT / 2
+        noteArea.setDrawSpace(xOffset,staffYCenter + noteYOffset)
         noteArea.staffYCenter = staffYCenter
         noteArea.draw(canvas)
     }
 
     fun setNote(clef: ClefValue, note: NoteValue) {
-        noteYOffset = Note.getNoteTranslation(Note(clef,note),LINE_SPACING)
+        noteYOffset = Note.getNoteTranslation(Note(clef, note), LINE_SPACING)
         this.clef = clef
         invalidate()
     }

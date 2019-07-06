@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ux.activities.main.MainActivity">
 
-    <!--    <com.trippntechnology.tnt.flashcards.views.SelectionView-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        app:line_space="@dimen/selection_view_line_space"-->
-    <!--        app:stroke_width="@dimen/selection_view_stroke_width"/>-->
+<!--        <com.trippntechnology.tnt.flashcards.views.SelectionView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:line_space="@dimen/selection_view_line_space"-->
+<!--            app:stroke_width="@dimen/selection_view_stroke_width"/>-->
 
 
     <com.google.android.material.card.MaterialCardView

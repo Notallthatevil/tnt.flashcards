@@ -42,28 +42,16 @@ abstract class BaseView(context: Context, attrs: AttributeSet?, defStyleAttr: In
     protected val FULL_STEP_UP = -LINE_SPACING
     protected val FULL_STEP_DOWN = LINE_SPACING
     protected val CENTER_STAFF = 0f
-    //Note size
-    protected val NOTE_BASE_HEIGHT = LINE_SPACING - STROKE_WIDTH
-    protected val NOTE_BASE_WIDTH = LINE_SPACING * 1.5f - STROKE_WIDTH
 
-    protected val NOTE_STEM_HEIGHT = LINE_SPACING * 4
-    protected val NOTE_STEM_WIDTH = STROKE_WIDTH
 
-    //CLEFS
-    protected val TREBLE_HEIGHT = (LINE_SPACING * 6)
-    protected val BASS_HEIGHT = (LINE_SPACING * 4)
-    protected val CLEF_WIDTH = (LINE_SPACING * 3.5f)
 
-    protected val clefArea = ClefArea(context, STROKE_WIDTH)
     protected val staffArea = StaffArea(context, STROKE_WIDTH, LINE_SPACING)
     protected val noteArea = NoteArea(context, STROKE_WIDTH,LINE_SPACING)
-    protected val ledgerLineArea = LedgerLineArea(context, STROKE_WIDTH)
-    protected val stemArea = StemArea(context, STROKE_WIDTH)
 
     protected val padding = dpToPx(2f)
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val desiredWidth = CLEF_WIDTH * 2 + NOTE_BASE_WIDTH
+        val desiredWidth = staffArea.CLEF_WIDTH * 2 + noteArea.NOTE_BASE_WIDTH
         val desiredHeight = LINE_SPACING * 14 + dpToPx(16f)
         val widthMode = MeasureSpec.getMode(widthMeasureSpec)
         val heightMode = MeasureSpec.getMode(heightMeasureSpec)

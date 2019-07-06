@@ -5,7 +5,7 @@ import android.graphics.Canvas
 import android.util.AttributeSet
 import android.view.MotionEvent
 import com.trippntechnology.tnt.flashcards.objects.ClefValue
-import com.trippntechnology.tnt.flashcards.objects.NoteValue
+import com.trippntechnology.tnt.flashcards.objects.Note
 import com.trippntechnology.tnt.flashcards.util.view.BaseView
 
 class SelectionView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
@@ -13,63 +13,68 @@ class SelectionView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context) : this(context, null)
 
-    private val bassNotes = emptyList<SelectableNoteArea>().toMutableList()
-    private val trebleNotes = emptyList<SelectableNoteArea>().toMutableList()
+    private val selectableNotes = mutableListOf<SelectableNoteArea>()
 
     private val staffSpacing = LINE_SPACING * 5.5f
 
     init {
-        NoteValue.values().forEach {
-            bassNotes.add(SelectableNoteArea(context, STROKE_WIDTH, ClefValue.BASS, it))
+        Note.bassNotes.forEach {
+            selectableNotes.add(SelectableNoteArea(context, STROKE_WIDTH, LINE_SPACING, it))
         }
-        NoteValue.values().forEach {
-            trebleNotes.add(SelectableNoteArea(context, STROKE_WIDTH, ClefValue.TREBLE, it))
+        Note.trebleNotes.forEach {
+            selectableNotes.add(SelectableNoteArea(context, STROKE_WIDTH, LINE_SPACING, it))
         }
     }
 
     override fun onDraw(canvas: Canvas?) {
         canvas ?: return
-        val staffXCenter = width / 2f
         val bottomStaffYCenter = height / 2f + staffSpacing / 2 + LINE_SPACING * 2
         val topStaffYCenter = height / 2f - staffSpacing / 2 - LINE_SPACING * 2
 
         //Draw staff
-        staffArea.bounds.top = bottomStaffYCenter - LINE_SPACING * 2
-        staffArea.bounds.bottom = staffArea.bounds.top
-        staffArea.bounds.left = 0f + padding
-        staffArea.bounds.right = width.toFloat() - padding
+        staffArea.clef = ClefValue.TREBLE
+        staffArea.setDrawSpace(
+            0f + padding,
+            topStaffYCenter - LINE_SPACING * 2,
+            width.toFloat() - padding
+        )
         staffArea.draw(canvas)
-        staffArea.bounds.top = topStaffYCenter - LINE_SPACING * 2
-        staffArea.bounds.bottom = staffArea.bounds.top
+
+        staffArea.clef = ClefValue.BASS
+        staffArea.setDrawSpace(
+            0f + padding,
+            bottomStaffYCenter - LINE_SPACING * 2,
+            width.toFloat() - padding
+        )
         staffArea.draw(canvas)
 
-        //Draw clef
-        clefArea.bounds.left = 0f
-        clefArea.bounds.right = clefArea.bounds.left + CLEF_WIDTH
-        clefArea.bounds.top = (bottomStaffYCenter - BASS_HEIGHT / 2 - LINE_SPACING / 4)
-        clefArea.bounds.bottom = clefArea.bounds.top + BASS_HEIGHT
-        clefArea.clef = ClefValue.BASS
-        clefArea.draw(canvas)
-        clefArea.bounds.top = (topStaffYCenter - TREBLE_HEIGHT / 2 + STROKE_WIDTH)
-        clefArea.bounds.bottom = clefArea.bounds.top + TREBLE_HEIGHT
-        clefArea.clef = ClefValue.TREBLE
-        clefArea.draw(canvas)
-
-        //Draw note
-//        noteArea.bounds.left = xOffset - NOTE_BASE_WIDTH / 2
-//        noteArea.bounds.top = staffYCenter + noteYOffset - NOTE_BASE_HEIGHT / 2
-//        noteArea.bounds.right = xOffset + NOTE_BASE_WIDTH / 2
-//        noteArea.bounds.bottom = staffYCenter + noteYOffset + NOTE_BASE_HEIGHT / 2
-//        canvas.save()
-//        canvas.rotate(NOTE_BASE_ROTATION_ANGLE, xOffset, staffYCenter + noteYOffset)
-//        noteArea.draw(canvas)
-//        canvas.restore()
-
-
-
+        //Draw notes
+        val staffSpace =
+            staffArea.bounds.right - (staffArea.bounds.left + staffArea.CLEF_WIDTH * 1.1f)
+        val noteSpacing = staffSpace / 8
+        val startXOffset = staffArea.bounds.left + staffArea.CLEF_WIDTH * 1.1f
+        var xOffset = startXOffset
+        for (i in 0 until selectableNotes.size) {
+            if (i == 0 || i % 8 == 0) {
+                xOffset = startXOffset
+            } else {
+                xOffset += noteSpacing
+            }
+            selectableNotes[i].setBounds(bottomStaffYCenter, topStaffYCenter, xOffset)
+            selectableNotes[i].draw(canvas)
+        }
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
+        event ?: return true
+        if (event.action == MotionEvent.ACTION_DOWN) {
+            selectableNotes.forEach {
+                if (it.bounds.contains(event.x, event.y)) {
+                    it.select()
+                    invalidate()
+                }
+            }
+        }
         return true
     }
 }
