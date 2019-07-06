@@ -49,17 +49,18 @@ class FlashCardView
     fun setNote(clef: ClefValue, note: NoteValue) {
         when (clef) {
             ClefValue.TREBLE -> when (note) {
-                NoteValue.X_LOW_C -> noteYOffset = FULL_STEP_DOWN * 9 + HALF_STEP_DOWN
-                NoteValue.X_LOW_D -> noteYOffset = FULL_STEP_DOWN * 9
-                NoteValue.X_LOW_E -> noteYOffset = FULL_STEP_DOWN * 8 + HALF_STEP_DOWN
-                NoteValue.X_LOW_F -> noteYOffset = FULL_STEP_DOWN * 8
-                NoteValue.X_LOW_G -> noteYOffset = FULL_STEP_DOWN * 7 + HALF_STEP_DOWN
-                NoteValue.LOW_A -> noteYOffset = FULL_STEP_DOWN * 7
-                NoteValue.LOW_B -> noteYOffset = FULL_STEP_DOWN * 6 + HALF_STEP_DOWN
-                NoteValue.LOW_C -> noteYOffset = FULL_STEP_DOWN * 6
-                NoteValue.LOW_D -> noteYOffset = FULL_STEP_DOWN * 5 + HALF_STEP_DOWN
-                NoteValue.LOW_E -> noteYOffset = FULL_STEP_DOWN * 5
-                NoteValue.LOW_F -> noteYOffset = FULL_STEP_DOWN * 4 + HALF_STEP_DOWN
+                NoteValue.X_LOW_C -> noteYOffset = FULL_STEP_DOWN * 10
+                NoteValue.X_LOW_D -> noteYOffset = FULL_STEP_DOWN * 9 + HALF_STEP_DOWN
+                NoteValue.X_LOW_E -> noteYOffset = FULL_STEP_DOWN * 9
+                NoteValue.X_LOW_F -> noteYOffset = FULL_STEP_DOWN * 8 + HALF_STEP_DOWN
+                NoteValue.X_LOW_G -> noteYOffset = FULL_STEP_DOWN * 8
+                NoteValue.LOW_A -> noteYOffset = FULL_STEP_DOWN * 7 + HALF_STEP_DOWN
+                NoteValue.LOW_B -> noteYOffset = FULL_STEP_DOWN * 7
+                NoteValue.LOW_C -> noteYOffset = FULL_STEP_DOWN * 6 + HALF_STEP_DOWN
+                NoteValue.LOW_D -> noteYOffset = FULL_STEP_DOWN * 6
+                NoteValue.LOW_E -> noteYOffset = FULL_STEP_DOWN * 5 + HALF_STEP_DOWN
+                NoteValue.LOW_F -> noteYOffset = FULL_STEP_DOWN * 5
+                NoteValue.LOW_G -> noteYOffset = FULL_STEP_DOWN * 4 + HALF_STEP_DOWN
                 NoteValue.MIDDLE_A -> noteYOffset = FULL_STEP_DOWN * 4
                 NoteValue.MIDDLE_B -> noteYOffset = FULL_STEP_DOWN * 3 + HALF_STEP_DOWN
                 NoteValue.MIDDLE_C -> noteYOffset = FULL_STEP_DOWN * 3
@@ -90,23 +91,24 @@ class FlashCardView
                 NoteValue.LOW_D -> noteYOffset = CENTER_STAFF
                 NoteValue.LOW_E -> noteYOffset = HALF_STEP_UP
                 NoteValue.LOW_F -> noteYOffset = FULL_STEP_UP
-                NoteValue.MIDDLE_A -> noteYOffset = FULL_STEP_UP + HALF_STEP_UP
-                NoteValue.MIDDLE_B -> noteYOffset = FULL_STEP_UP * 2
-                NoteValue.MIDDLE_C -> noteYOffset = FULL_STEP_UP * 2 + HALF_STEP_UP
-                NoteValue.MIDDLE_D -> noteYOffset = FULL_STEP_UP * 3
-                NoteValue.MIDDLE_E -> noteYOffset = FULL_STEP_UP * 3 + HALF_STEP_UP
-                NoteValue.MIDDLE_F -> noteYOffset = FULL_STEP_UP * 4
-                NoteValue.MIDDLE_G -> noteYOffset = FULL_STEP_UP * 4 + HALF_STEP_UP
-                NoteValue.HIGH_A -> noteYOffset = FULL_STEP_UP * 5
-                NoteValue.HIGH_B -> noteYOffset = FULL_STEP_UP * 5 + HALF_STEP_UP
-                NoteValue.HIGH_C -> noteYOffset = FULL_STEP_UP * 6
-                NoteValue.HIGH_D -> noteYOffset = FULL_STEP_UP * 6 + HALF_STEP_UP
-                NoteValue.HIGH_E -> noteYOffset = FULL_STEP_UP * 7
-                NoteValue.HIGH_F -> noteYOffset = FULL_STEP_UP * 7 + HALF_STEP_UP
-                NoteValue.HIGH_G -> noteYOffset = FULL_STEP_UP * 8
-                NoteValue.X_HIGH_A -> noteYOffset = FULL_STEP_UP * 8 + HALF_STEP_UP
-                NoteValue.X_HIGH_B -> noteYOffset = FULL_STEP_UP * 9
-                NoteValue.X_HIGH_C -> noteYOffset = FULL_STEP_UP * 9 + HALF_STEP_UP
+                NoteValue.LOW_G -> noteYOffset = FULL_STEP_UP + HALF_STEP_UP
+                NoteValue.MIDDLE_A -> noteYOffset = FULL_STEP_UP * 2
+                NoteValue.MIDDLE_B -> noteYOffset = FULL_STEP_UP * 2 + HALF_STEP_UP
+                NoteValue.MIDDLE_C -> noteYOffset = FULL_STEP_UP * 3
+                NoteValue.MIDDLE_D -> noteYOffset = FULL_STEP_UP * 3 + HALF_STEP_UP
+                NoteValue.MIDDLE_E -> noteYOffset = FULL_STEP_UP * 4
+                NoteValue.MIDDLE_F -> noteYOffset = FULL_STEP_UP * 4 + HALF_STEP_UP
+                NoteValue.MIDDLE_G -> noteYOffset = FULL_STEP_UP * 5
+                NoteValue.HIGH_A -> noteYOffset = FULL_STEP_UP * 5 + HALF_STEP_UP
+                NoteValue.HIGH_B -> noteYOffset = FULL_STEP_UP * 6
+                NoteValue.HIGH_C -> noteYOffset = FULL_STEP_UP * 6 + HALF_STEP_UP
+                NoteValue.HIGH_D -> noteYOffset = FULL_STEP_UP * 7
+                NoteValue.HIGH_E -> noteYOffset = FULL_STEP_UP * 7 + HALF_STEP_UP
+                NoteValue.HIGH_F -> noteYOffset = FULL_STEP_UP * 8
+                NoteValue.HIGH_G -> noteYOffset = FULL_STEP_UP * 8 + HALF_STEP_UP
+                NoteValue.X_HIGH_A -> noteYOffset = FULL_STEP_UP * 9
+                NoteValue.X_HIGH_B -> noteYOffset = FULL_STEP_UP * 9 + HALF_STEP_UP
+                NoteValue.X_HIGH_C -> noteYOffset = FULL_STEP_UP * 10
             }
         }
         this.clef = clef

@@ -19,6 +19,7 @@ enum class NoteValue {
     LOW_D,
     LOW_E,
     LOW_F,
+    LOW_G,
     MIDDLE_A,
     MIDDLE_B,
     MIDDLE_C,
