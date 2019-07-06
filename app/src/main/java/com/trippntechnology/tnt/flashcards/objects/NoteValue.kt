@@ -36,9 +36,4 @@ enum class NoteValue {
     X_HIGH_A,
     X_HIGH_B,
     X_HIGH_C;
-
-
-    fun randomLetter(): NoteValue {
-        return values()[Random().nextInt(values().size)]
-    }
 }

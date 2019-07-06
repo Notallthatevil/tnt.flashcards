@@ -6,28 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".ux.activities.main.MainActivity">
 
+    <!--    <com.trippntechnology.tnt.flashcards.views.SelectionView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        app:line_space="@dimen/selection_view_line_space"-->
+    <!--        app:stroke_width="@dimen/selection_view_stroke_width"/>-->
 
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/flashCardCardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/card_view_corner_radius"
+        app:cardElevation="@dimen/card_view_height"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-<!--    <com.google.android.material.card.MaterialCardView-->
-<!--        android:id="@+id/flashCardCardView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:cardCornerRadius="@dimen/card_view_corner_radius"-->
-<!--        app:cardElevation="@dimen/card_view_height"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
-
-<!--        <com.trippntechnology.tnt.flashcards.views.FlashCardView-->
-<!--            android:id="@+id/flashCard"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="center"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:line_space="@dimen/flash_card_line_space"-->
-<!--            app:stroke_width="@dimen/flash_card_stroke_width" />-->
-<!--    </com.google.android.material.card.MaterialCardView>-->
+        <com.trippntechnology.tnt.flashcards.views.FlashCardView
+            android:id="@+id/flashCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:line_space="@dimen/flash_card_line_space"
+            app:stroke_width="@dimen/flash_card_stroke_width" />
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

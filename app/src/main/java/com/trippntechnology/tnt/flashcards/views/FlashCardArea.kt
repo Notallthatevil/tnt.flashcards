@@ -8,7 +8,7 @@ import com.trippntechnology.tnt.flashcards.R
 import kotlin.math.roundToInt
 
 abstract class FlashCardArea(
-    context: Context,private val strokeWidth:Float
+    context: Context, protected val strokeWidth:Float
 ) : Area(context) {
 
     protected val blackPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {

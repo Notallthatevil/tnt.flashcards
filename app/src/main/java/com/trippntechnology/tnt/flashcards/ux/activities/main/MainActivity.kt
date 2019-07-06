@@ -2,6 +2,7 @@ package com.trippntechnology.tnt.flashcards.ux.activities.main
 
 import android.os.Bundle
 import com.trippntechnology.tnt.flashcards.R
+import com.trippntechnology.tnt.flashcards.objects.ClefValue
 import com.trippntechnology.tnt.flashcards.objects.NoteValue
 import com.trippntechnology.tnt.flashcards.util.activities.BaseActivity
 import com.trippntechnology.tnt.flashcards.views.ClefArea
@@ -15,7 +16,7 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         flashCardCardView.setOnClickListener {
             flashCard.setNote(
-                ClefArea.Clef.values()[Random().nextInt(ClefArea.Clef.values().size)],
+                ClefValue.values()[Random().nextInt(ClefValue.values().size)],
                 NoteValue.values()[Random().nextInt(NoteValue.values().size)]
             )
         }

@@ -45,7 +45,6 @@ abstract class BaseView(context: Context, attrs: AttributeSet?, defStyleAttr: In
     //Note size
     protected val NOTE_BASE_HEIGHT = LINE_SPACING - STROKE_WIDTH
     protected val NOTE_BASE_WIDTH = LINE_SPACING * 1.5f - STROKE_WIDTH
-    protected val NOTE_BASE_ROTATION_ANGLE = 340f
 
     protected val NOTE_STEM_HEIGHT = LINE_SPACING * 4
     protected val NOTE_STEM_WIDTH = STROKE_WIDTH
@@ -57,10 +56,11 @@ abstract class BaseView(context: Context, attrs: AttributeSet?, defStyleAttr: In
 
     protected val clefArea = ClefArea(context, STROKE_WIDTH)
     protected val staffArea = StaffArea(context, STROKE_WIDTH, LINE_SPACING)
-    protected val noteArea = NoteArea(context, STROKE_WIDTH)
+    protected val noteArea = NoteArea(context, STROKE_WIDTH,LINE_SPACING)
     protected val ledgerLineArea = LedgerLineArea(context, STROKE_WIDTH)
     protected val stemArea = StemArea(context, STROKE_WIDTH)
 
+    protected val padding = dpToPx(2f)
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val desiredWidth = CLEF_WIDTH * 2 + NOTE_BASE_WIDTH

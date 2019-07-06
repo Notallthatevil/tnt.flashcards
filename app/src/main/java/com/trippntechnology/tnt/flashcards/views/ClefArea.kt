@@ -4,19 +4,20 @@ import android.content.Context
 import android.graphics.Canvas
 import androidx.core.content.ContextCompat
 import com.trippntechnology.tnt.flashcards.R
+import com.trippntechnology.tnt.flashcards.objects.ClefValue
 
 class ClefArea(
     context: Context,strokeWidth:Float
 ) : FlashCardArea(context, strokeWidth) {
 
-    var clef = Clef.BASS
+    var clef = ClefValue.BASS
 
     private val bassClefDrawable = ContextCompat.getDrawable(context, R.drawable.bass)
     private val trebleClefDrawable = ContextCompat.getDrawable(context, R.drawable.treble)
 
 
     override fun draw(canvas: Canvas) {
-        if (clef == Clef.BASS) {
+        if (clef == ClefValue.BASS) {
             bassClefDrawable ?: return
             bounds.round(bassClefDrawable.bounds)
             bassClefDrawable.draw(canvas)
@@ -25,9 +26,5 @@ class ClefArea(
             bounds.round(trebleClefDrawable.bounds)
             trebleClefDrawable.draw(canvas)
         }
-    }
-
-    enum class Clef {
-        BASS, TREBLE;
     }
 }
