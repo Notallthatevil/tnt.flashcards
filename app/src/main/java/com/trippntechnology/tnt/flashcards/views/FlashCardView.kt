@@ -42,10 +42,6 @@ class FlashCardView
         val staffXCenter = width / 2f
         val xOffset = staffXCenter + noteXOffset
 
-        canvas.drawLine(0f,staffYCenter,width.toFloat(),staffYCenter, Paint().apply{
-            color = ContextCompat.getColor(context, R.color.colorAccent)
-            strokeWidth = 10f
-        })
         //Draw staff
         staffArea.clef = clef
         staffArea.bounds.top = staffYCenter- LINE_SPACING*2
