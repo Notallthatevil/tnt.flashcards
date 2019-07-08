@@ -4,6 +4,7 @@ package com.trippntechnology.tnt.flashcards.injector
 import android.app.Application
 import com.trippntechnology.tnt.flashcards.ux.activities.main.MainActivity
 import com.trippntechnology.tnt.flashcards.ux.fragments.main.FlashCardFragment
+import com.trippntechnology.tnt.flashcards.ux.fragments.main.SelectNoteFragment
 import dagger.Component
 import javax.inject.Singleton
 
@@ -16,6 +17,7 @@ interface AppComponent {
     fun inject(target: MainActivity)
 
     fun inject(fragment: FlashCardFragment)
+    fun inject(fragment: SelectNoteFragment)
 
 
     // Exported for child-components.

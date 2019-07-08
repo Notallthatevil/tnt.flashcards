@@ -7,21 +7,24 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.trippntechnology.tnt.flashcards.R
-import com.trippntechnology.tnt.flashcards.databinding.FragmentFlashCardBinding
+import com.trippntechnology.tnt.flashcards.databinding.FragmentSelectNoteBinding
 import com.trippntechnology.tnt.flashcards.injector.Injector
 import com.trippntechnology.tnt.flashcards.util.fragments.BaseFragment
 import com.trippntechnology.tnt.flashcards.ux.activities.main.MainViewModel
 import com.vikingsen.inject.viewmodel.ViewModelFactory
 import javax.inject.Inject
 
-class FlashCardFragment : BaseFragment() {
+class SelectNoteFragment : BaseFragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    private val viewModel by lazy { ViewModelProviders.of(requireActivity(), viewModelFactory).get(
-        MainViewModel::class.java) }
-    private lateinit var binding: FragmentFlashCardBinding
+    private val viewModel by lazy {
+        ViewModelProviders.of(requireActivity(), viewModelFactory).get(
+            MainViewModel::class.java
+        )
+    }
+    private lateinit var binding: FragmentSelectNoteBinding
 
     init {
         Injector.get().inject(this)
@@ -32,15 +35,14 @@ class FlashCardFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_flash_card, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_select_note, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.apply {
-            viewModel = this@FlashCardFragment.viewModel
-            lifecycleOwner = this@FlashCardFragment
+            viewModel = this@SelectNoteFragment.viewModel
+            lifecycleOwner = this@SelectNoteFragment
         }
     }
-
 }
