@@ -1,5 +1,8 @@
 package com.trippntechnology.tnt.flashcards.objects
 
+import com.trippntechnology.tnt.flashcards.objects.enums.ClefValue
+import com.trippntechnology.tnt.flashcards.objects.enums.NoteValue
+
 data class Note(val clef: ClefValue, val note: NoteValue) {
 
     companion object {

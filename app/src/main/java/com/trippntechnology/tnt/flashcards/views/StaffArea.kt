@@ -2,7 +2,7 @@ package com.trippntechnology.tnt.flashcards.views
 
 import android.content.Context
 import android.graphics.Canvas
-import com.trippntechnology.tnt.flashcards.objects.ClefValue
+import com.trippntechnology.tnt.flashcards.objects.enums.ClefValue
 
 class StaffArea(
     context: Context, strokeWidth: Float, private val lineSpacing: Float

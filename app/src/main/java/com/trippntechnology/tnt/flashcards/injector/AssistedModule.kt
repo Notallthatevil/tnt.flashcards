@@ -1,5 +1,3 @@
-@file:Suppress("unused")
-
 package com.trippntechnology.tnt.flashcards.injector
 
 import com.vikingsen.inject.viewmodel.ViewModelModule

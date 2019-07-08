@@ -3,9 +3,9 @@ package com.trippntechnology.tnt.flashcards.views
 import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
-import com.trippntechnology.tnt.flashcards.objects.ClefValue
+import com.trippntechnology.tnt.flashcards.objects.enums.ClefValue
 import com.trippntechnology.tnt.flashcards.objects.Note
-import com.trippntechnology.tnt.flashcards.objects.NoteValue
+import com.trippntechnology.tnt.flashcards.objects.enums.NoteValue
 import com.trippntechnology.tnt.flashcards.util.view.BaseView
 
 class FlashCardView

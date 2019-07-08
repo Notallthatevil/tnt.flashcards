@@ -2,12 +2,9 @@ package com.trippntechnology.tnt.flashcards.views
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.RectF
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
-import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 import com.trippntechnology.tnt.flashcards.R
-import com.trippntechnology.tnt.flashcards.objects.ClefValue
+import com.trippntechnology.tnt.flashcards.objects.enums.ClefValue
 
 class ClefArea(
     context: Context,strokeWidth:Float

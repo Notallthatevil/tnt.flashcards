@@ -1,5 +1,3 @@
 package com.trippntechnology.tnt.flashcards.objects
 
-enum class ClefValue{
-    BASS,TREBLE;
-}
+data class EnabledNotes(val notes:List<Note>)

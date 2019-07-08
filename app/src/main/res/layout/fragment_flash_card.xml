@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.trippntechnology.tnt.flashcards.ux.activities.main.MainViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ux.activities.main.MainActivity">
+
+    <!--&lt;!&ndash;        <com.trippntechnology.tnt.flashcards.views.SelectionView&ndash;&gt;-->
+    <!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;            android:layout_height="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;            app:line_space="@dimen/selection_view_line_space"&ndash;&gt;-->
+    <!--&lt;!&ndash;            app:stroke_width="@dimen/selection_view_stroke_width"/>&ndash;&gt;-->
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/flashCardCardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/card_view_corner_radius"
+            app:cardElevation="@dimen/card_view_height"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.trippntechnology.tnt.flashcards.views.FlashCardView
+                android:id="@+id/flashCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:line_space="@dimen/flash_card_line_space"
+                app:stroke_width="@dimen/flash_card_stroke_width" />
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

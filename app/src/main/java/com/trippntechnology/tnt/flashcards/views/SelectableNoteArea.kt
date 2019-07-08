@@ -4,7 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import androidx.core.content.ContextCompat
 import com.trippntechnology.tnt.flashcards.R
-import com.trippntechnology.tnt.flashcards.objects.ClefValue
+import com.trippntechnology.tnt.flashcards.objects.enums.ClefValue
 import com.trippntechnology.tnt.flashcards.objects.Note
 
 class SelectableNoteArea(
