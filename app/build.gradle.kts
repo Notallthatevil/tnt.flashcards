@@ -1,4 +1,3 @@
-
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -20,10 +19,13 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
-    dataBinding{
+    dataBinding {
         isEnabled = true
     }
 }
@@ -59,5 +61,11 @@ dependencies {
     //ViewModelModule
     implementation("com.vikingsen.inject:viewmodel-inject:0.2.0-alpha01")
     kapt("com.vikingsen.inject:viewmodel-inject-processor:0.2.0-alpha01")
+    //Room
+    implementation("androidx.room:room-runtime:2.1.0")
+    kapt("androidx.room:room-compiler:2.1.0")
+    implementation("androidx.room:room-ktx:2.1.0")
+    //Room dbtools
+    implementation("org.dbtools:dbtools-room:4.9.4")
 
 }

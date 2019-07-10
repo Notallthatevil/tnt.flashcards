@@ -4,8 +4,8 @@ import android.content.Context
 import android.graphics.Canvas
 import androidx.core.content.ContextCompat
 import com.trippntechnology.tnt.flashcards.R
-import com.trippntechnology.tnt.flashcards.objects.enums.ClefValue
-import com.trippntechnology.tnt.flashcards.objects.Note
+import com.trippntechnology.tnt.flashcards.objects.enums.clefvalue.ClefValue
+import com.trippntechnology.tnt.flashcards.objects.note.Note
 
 class SelectableNoteArea(
     context: Context,
@@ -30,7 +30,7 @@ class SelectableNoteArea(
         } else {
             topStaffYCenter
         }
-        bounds.top = staffYCenter +Note.getNoteTranslation(note, lineSpace) - NOTE_BASE_HEIGHT / 2
+        bounds.top = staffYCenter + Note.getNoteTranslation(note, lineSpace) - NOTE_BASE_HEIGHT / 2
         bounds.left = noteCenterXPos - NOTE_BASE_WIDTH / 2
         bounds.bottom = bounds.top + NOTE_BASE_HEIGHT
         bounds.right = bounds.left + NOTE_BASE_WIDTH

@@ -4,7 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import androidx.core.content.ContextCompat
 import com.trippntechnology.tnt.flashcards.R
-import com.trippntechnology.tnt.flashcards.objects.enums.ClefValue
+import com.trippntechnology.tnt.flashcards.objects.enums.clefvalue.ClefValue
 
 class ClefArea(
     context: Context,strokeWidth:Float

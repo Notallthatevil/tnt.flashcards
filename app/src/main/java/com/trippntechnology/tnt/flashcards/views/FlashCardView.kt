@@ -3,9 +3,9 @@ package com.trippntechnology.tnt.flashcards.views
 import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
-import com.trippntechnology.tnt.flashcards.objects.enums.ClefValue
-import com.trippntechnology.tnt.flashcards.objects.Note
-import com.trippntechnology.tnt.flashcards.objects.enums.NoteValue
+import com.trippntechnology.tnt.flashcards.objects.enums.clefvalue.ClefValue
+import com.trippntechnology.tnt.flashcards.objects.note.Note
+import com.trippntechnology.tnt.flashcards.objects.enums.notevalue.NoteValue
 import com.trippntechnology.tnt.flashcards.util.view.BaseView
 
 class FlashCardView
@@ -42,7 +42,11 @@ class FlashCardView
     }
 
     fun setNote(clef: ClefValue, note: NoteValue) {
-        noteYOffset = Note.getNoteTranslation(Note(clef, note), LINE_SPACING)
+        noteYOffset = Note.getNoteTranslation(
+            Note(
+                clef,
+                note
+            ), LINE_SPACING)
         this.clef = clef
         invalidate()
     }

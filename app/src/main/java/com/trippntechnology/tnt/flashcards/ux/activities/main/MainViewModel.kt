@@ -5,4 +5,14 @@ import com.vikingsen.inject.viewmodel.ViewModelInject
 
 class MainViewModel @ViewModelInject constructor():BaseViewModel(){
 
+
+
+
+    fun saveNoteSelection(){
+
+    }
+
+    fun cancelNoteSelection(){
+
+    }
 }

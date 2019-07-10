@@ -1,4 +1,4 @@
-package com.trippntechnology.tnt.flashcards.objects.enums
+package com.trippntechnology.tnt.flashcards.objects.enums.notevalue
 
 import java.nio.file.Files.size
 import java.util.*
