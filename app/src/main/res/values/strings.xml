@@ -3,4 +3,10 @@
 
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
+
+    <string name="config_name">Flash cards packet name</string>
+
+    <string name="config_name_required">A name must be entered before you can save</string>
+    <string name="config_selection_required">You must select at least one note to show</string>
+
 </resources>

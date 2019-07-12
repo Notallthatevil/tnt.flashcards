@@ -8,16 +8,25 @@ import com.trippntechnology.tnt.flashcards.objects.note.Note
 
 @Entity(tableName = "enabled_notes")
 data class EnabledNotes(
-    @PrimaryKey(autoGenerate = true) var id: Long = 0,
-    val name: String,
-    val notes: String
+    @PrimaryKey(autoGenerate = true) var id: Long = 0, val name: String, val notes: String
 ) {
+
+    constructor(id: Long = 0, name: String, noteList: List<Note>) : this(
+        id,
+        name,
+        notesToString(noteList)
+    )
+
+    override fun hashCode(): Int {
+        return super.hashCode()
+    }
+
     companion object {
         fun notesToString(notes: List<Note>): String {
             var dataString = ""
             notes.forEachIndexed { index, note ->
                 dataString += "${note.clef.name}:${note.note.name}"
-                if (index < notes.size-1) {
+                if (index < notes.size - 1) {
                     dataString += ", "
                 }
             }
@@ -30,8 +39,7 @@ data class EnabledNotes(
             for (i in 0 until splitString.size step 2) {
                 list.add(
                     Note(
-                        ClefValue.valueOf(splitString[i]),
-                        NoteValue.valueOf(splitString[i + 1])
+                        ClefValue.valueOf(splitString[i]), NoteValue.valueOf(splitString[i + 1])
                     )
                 )
             }

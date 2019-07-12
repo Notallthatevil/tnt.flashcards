@@ -63,4 +63,8 @@ class SelectableNoteArea(
             )
         }
     }
+
+    fun isSelected():Boolean{
+        return selected
+    }
 }

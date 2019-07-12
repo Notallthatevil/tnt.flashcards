@@ -13,15 +13,41 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:boxBackgroundColor="@color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/selectNoteConfigName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/config_name"
+                android:minWidth="250dp"
+                android:maxLines="1"
+                android:maxLength="35"
+                android:text="@{viewModel.loadedConfig.name}"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <com.trippntechnology.tnt.flashcards.views.SelectionView
+            android:id="@+id/selectionView"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toTopOf="@+id/selectionButtonCancel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
             app:line_space="@dimen/selection_view_line_space"
+            app:setConfig="@{viewModel.loadedConfig}"
             app:stroke_width="@dimen/selection_view_stroke_width" />
 
         <com.google.android.material.button.MaterialButton
@@ -30,8 +56,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
+            android:onClick="@{()->viewModel.saveConfigButton()}"
             android:text="@string/save"
-            android:onClick="@{()->viewModel.saveNoteSelection()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -42,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
-            android:onClick="@{()->viewModel.cancelNoteSelection()}"
+            android:onClick="@{()->viewModel.cancelConfigButton()}"
             android:text="@string/cancel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/selectionButtonSave" />

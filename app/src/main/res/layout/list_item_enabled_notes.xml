@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.trippntechnology.tnt.flashcards.ux.activities.main.MainViewModel" />
+
+        <variable
+            name="enabledNotesConfig"
+            type="com.trippntechnology.tnt.flashcards.objects.enablednotes.EnabledNotes" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:selectableItemBackground"
+        android:onClick="@{()->viewModel.showFlashCards(enabledNotesConfig)">
+<!--        android:onLongClick="@{(view)->viewModel.loadConfig(view,enabledNotesConfig)"-->
+<!--        android:orientation="vertical">-->
+
+        <TextView
+            android:id="@+id/listItemText"
+            style="@style/TextAppearance.AppCompat.Headline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@{enabledNotesConfig.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

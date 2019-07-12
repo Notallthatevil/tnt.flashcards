@@ -5,97 +5,74 @@ import com.trippntechnology.tnt.flashcards.objects.enums.notevalue.NoteValue
 
 data class Note(val clef: ClefValue, val note: NoteValue) {
 
+    override fun hashCode(): Int {
+        var result = clef.hashCode()
+        result = 31 * result + note.hashCode()
+        return result
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+        other as Note
+        if (clef != other.clef) return false
+        if (note != other.note) return false
+        return true
+    }
+
     companion object {
         val trebleNotes = listOf(
             Note(
-                ClefValue.TREBLE,
-                NoteValue.MIDDLE_A
-            ),
-            Note(
-                ClefValue.TREBLE,
-                NoteValue.MIDDLE_B
-            ),
-            Note(
-                ClefValue.TREBLE,
-                NoteValue.MIDDLE_C
-            ),
-            Note(
-                ClefValue.TREBLE,
-                NoteValue.MIDDLE_D
-            ),
-            Note(
-                ClefValue.TREBLE,
-                NoteValue.MIDDLE_E
-            ),
-            Note(
-                ClefValue.TREBLE,
-                NoteValue.MIDDLE_F
-            ),
-            Note(
-                ClefValue.TREBLE,
-                NoteValue.MIDDLE_G
-            ),
-            Note(
-                ClefValue.TREBLE,
-                NoteValue.HIGH_A
-            ),
-            Note(
-                ClefValue.TREBLE,
-                NoteValue.HIGH_B
-            ),
-            Note(
-                ClefValue.TREBLE,
-                NoteValue.HIGH_C
-            ),
-            Note(
-                ClefValue.TREBLE,
-                NoteValue.HIGH_D
-            ),
-            Note(
-                ClefValue.TREBLE,
-                NoteValue.HIGH_E
-            ),
-            Note(
-                ClefValue.TREBLE,
-                NoteValue.HIGH_F
-            ),
-            Note(
-                ClefValue.TREBLE,
-                NoteValue.HIGH_G
-            ),
-            Note(
-                ClefValue.TREBLE,
-                NoteValue.X_HIGH_A
-            ),
-            Note(
-                ClefValue.TREBLE,
-                NoteValue.X_HIGH_B
-            ),
-            Note(
-                ClefValue.TREBLE,
-                NoteValue.X_HIGH_C
+                ClefValue.TREBLE, NoteValue.MIDDLE_A
+            ), Note(
+                ClefValue.TREBLE, NoteValue.MIDDLE_B
+            ), Note(
+                ClefValue.TREBLE, NoteValue.MIDDLE_C
+            ), Note(
+                ClefValue.TREBLE, NoteValue.MIDDLE_D
+            ), Note(
+                ClefValue.TREBLE, NoteValue.MIDDLE_E
+            ), Note(
+                ClefValue.TREBLE, NoteValue.MIDDLE_F
+            ), Note(
+                ClefValue.TREBLE, NoteValue.MIDDLE_G
+            ), Note(
+                ClefValue.TREBLE, NoteValue.HIGH_A
+            ), Note(
+                ClefValue.TREBLE, NoteValue.HIGH_B
+            ), Note(
+                ClefValue.TREBLE, NoteValue.HIGH_C
+            ), Note(
+                ClefValue.TREBLE, NoteValue.HIGH_D
+            ), Note(
+                ClefValue.TREBLE, NoteValue.HIGH_E
+            ), Note(
+                ClefValue.TREBLE, NoteValue.HIGH_F
+            ), Note(
+                ClefValue.TREBLE, NoteValue.HIGH_G
+            ), Note(
+                ClefValue.TREBLE, NoteValue.X_HIGH_A
+            ), Note(
+                ClefValue.TREBLE, NoteValue.X_HIGH_B
+            ), Note(
+                ClefValue.TREBLE, NoteValue.X_HIGH_C
             )
         )
         val bassNotes = listOf(
             Note(
-                ClefValue.BASS,
-                NoteValue.X_LOW_C
+                ClefValue.BASS, NoteValue.X_LOW_C
             ),
             Note(
-                ClefValue.BASS,
-                NoteValue.X_LOW_D
+                ClefValue.BASS, NoteValue.X_LOW_D
             ),
             Note(
-                ClefValue.BASS,
-                NoteValue.X_LOW_E
+                ClefValue.BASS, NoteValue.X_LOW_E
             ),
             Note(
-                ClefValue.BASS,
-                NoteValue.X_LOW_F
+                ClefValue.BASS, NoteValue.X_LOW_F
             ),
             Note(
-                ClefValue.BASS,
-                NoteValue.X_LOW_G
+                ClefValue.BASS, NoteValue.X_LOW_G
             ),
             Note(ClefValue.BASS, NoteValue.LOW_A),
             Note(ClefValue.BASS, NoteValue.LOW_B),
@@ -105,24 +82,19 @@ data class Note(val clef: ClefValue, val note: NoteValue) {
             Note(ClefValue.BASS, NoteValue.LOW_F),
             Note(ClefValue.BASS, NoteValue.LOW_G),
             Note(
-                ClefValue.BASS,
-                NoteValue.MIDDLE_A
+                ClefValue.BASS, NoteValue.MIDDLE_A
             ),
             Note(
-                ClefValue.BASS,
-                NoteValue.MIDDLE_B
+                ClefValue.BASS, NoteValue.MIDDLE_B
             ),
             Note(
-                ClefValue.BASS,
-                NoteValue.MIDDLE_C
+                ClefValue.BASS, NoteValue.MIDDLE_C
             ),
             Note(
-                ClefValue.BASS,
-                NoteValue.MIDDLE_D
+                ClefValue.BASS, NoteValue.MIDDLE_D
             ),
             Note(
-                ClefValue.BASS,
-                NoteValue.MIDDLE_E
+                ClefValue.BASS, NoteValue.MIDDLE_E
             )
         )
 

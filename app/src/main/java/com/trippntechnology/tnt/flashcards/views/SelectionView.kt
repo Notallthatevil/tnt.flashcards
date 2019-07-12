@@ -1,9 +1,11 @@
 package com.trippntechnology.tnt.flashcards.views
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
 import android.view.MotionEvent
+import com.trippntechnology.tnt.flashcards.objects.enablednotes.EnabledNotes
 import com.trippntechnology.tnt.flashcards.objects.enums.clefvalue.ClefValue
 import com.trippntechnology.tnt.flashcards.objects.note.Note
 import com.trippntechnology.tnt.flashcards.util.view.BaseView
@@ -17,12 +19,22 @@ class SelectionView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
 
     private val staffSpacing = LINE_SPACING * 5.5f
 
+    var enabledNotes: List<Note>? = null
+
     init {
         Note.bassNotes.forEach {
-            selectableNotes.add(SelectableNoteArea(context, STROKE_WIDTH, LINE_SPACING, it))
+            val selectableNote = SelectableNoteArea(context, STROKE_WIDTH, LINE_SPACING, it)
+            if (enabledNotes != null && enabledNotes!!.contains(it)) {
+                selectableNote.select()
+            }
+            selectableNotes.add(selectableNote)
         }
         Note.trebleNotes.forEach {
-            selectableNotes.add(SelectableNoteArea(context, STROKE_WIDTH, LINE_SPACING, it))
+            val selectableNote = SelectableNoteArea(context, STROKE_WIDTH, LINE_SPACING, it)
+            if (enabledNotes != null && enabledNotes!!.contains(it)) {
+                selectableNote.select()
+            }
+            selectableNotes.add(selectableNote)
         }
     }
 
@@ -34,17 +46,13 @@ class SelectionView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
         //Draw staff
         staffArea.clef = ClefValue.TREBLE
         staffArea.setDrawSpace(
-            0f + padding,
-            topStaffYCenter - LINE_SPACING * 2,
-            width.toFloat() - padding
+            0f + padding, topStaffYCenter - LINE_SPACING * 2, width.toFloat() - padding
         )
         staffArea.draw(canvas)
 
         staffArea.clef = ClefValue.BASS
         staffArea.setDrawSpace(
-            0f + padding,
-            bottomStaffYCenter - LINE_SPACING * 2,
-            width.toFloat() - padding
+            0f + padding, bottomStaffYCenter - LINE_SPACING * 2, width.toFloat() - padding
         )
         staffArea.draw(canvas)
 
@@ -65,6 +73,7 @@ class SelectionView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         event ?: return true
         if (event.action == MotionEvent.ACTION_DOWN) {
@@ -76,5 +85,15 @@ class SelectionView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
             }
         }
         return true
+    }
+
+    fun exportConfig():List<Note>{
+        val enabledNotes = mutableListOf<Note>()
+        selectableNotes.forEach{
+            if (it.isSelected()){
+                enabledNotes.add(it.note)
+            }
+        }
+        return enabledNotes
     }
 }

@@ -41,6 +41,11 @@ class FlashCardFragment : BaseFragment() {
             viewModel = this@FlashCardFragment.viewModel
             lifecycleOwner = this@FlashCardFragment
         }
+        super.onViewCreated(view,savedInstanceState)
+    }
+
+    override fun setUpObservers() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 }
