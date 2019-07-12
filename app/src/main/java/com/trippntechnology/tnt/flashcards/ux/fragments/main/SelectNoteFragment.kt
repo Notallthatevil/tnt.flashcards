@@ -42,6 +42,7 @@ class SelectNoteFragment : BaseFragment() {
         binding.apply {
             viewModel = this@SelectNoteFragment.viewModel
             lifecycleOwner = this@SelectNoteFragment
+            selectionView.loadConfig(viewModel?.loadedConfig)
         }
         super.onViewCreated(view, savedInstanceState)
     }
@@ -71,6 +72,9 @@ class SelectNoteFragment : BaseFragment() {
                             viewModel.saveNoteConfig(id, name, noteList)
                         }
                     }
+                }
+                MainViewModel.EVENT_CANCEL_CONFIG -> {
+                    NavHostFragment.findNavController(this).navigate(R.id.enabledNotesListFragment)
                 }
                 MainViewModel.EVENT_CONFIG_SAVED -> {
                     NavHostFragment.findNavController(this).navigate(R.id.enabledNotesListFragment)

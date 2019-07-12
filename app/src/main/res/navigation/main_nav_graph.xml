@@ -30,7 +30,7 @@
         tools:layout="@layout/fragment_select_note">
         <action
             android:id="@+id/action_selectNoteFragment_to_enabledNotesListFragment2"
-            app:destination="@id/enabledNotesListFragment" />
+            app:destination="@id/enabledNotesListFragment"/>
     </fragment>
 
 </navigation>

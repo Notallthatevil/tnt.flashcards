@@ -51,8 +51,7 @@ class EnabledNotesListFragment : BaseFragment() {
             recyclerViewSelectedNotesList.adapter = this@EnabledNotesListFragment.adapter
             recyclerViewSelectedNotesList.addItemDecoration(
                 DividerItemDecoration(
-                    requireContext(),
-                    DividerItemDecoration.VERTICAL
+                    requireContext(), DividerItemDecoration.VERTICAL
                 )
             )
         }
@@ -63,6 +62,9 @@ class EnabledNotesListFragment : BaseFragment() {
         viewModel.mainViewModelEvent.observe {
             when (it!!) {
                 MainViewModel.EVENT_NEW_ENABLED_NOTES_CONFIG -> {
+                    NavHostFragment.findNavController(this).navigate(R.id.selectNoteFragment)
+                }
+                MainViewModel.EVENT_LOAD_CONFIG -> {
                     NavHostFragment.findNavController(this).navigate(R.id.selectNoteFragment)
                 }
             }

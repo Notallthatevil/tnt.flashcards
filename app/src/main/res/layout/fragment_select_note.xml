@@ -47,7 +47,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
             app:line_space="@dimen/selection_view_line_space"
-            app:setConfig="@{viewModel.loadedConfig}"
             app:stroke_width="@dimen/selection_view_stroke_width" />
 
         <com.google.android.material.button.MaterialButton

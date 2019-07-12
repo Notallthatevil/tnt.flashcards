@@ -22,10 +22,4 @@ object CustomBinding {
         }
     }
 
-    @JvmStatic
-    @BindingAdapter("setConfig")
-    fun setConfig(selectionView: SelectionView, enabledNotes: EnabledNotes?) {
-        enabledNotes ?: return
-        selectionView.enabledNotes = EnabledNotes.stringToNotes(enabledNotes.notes)
-    }
 }

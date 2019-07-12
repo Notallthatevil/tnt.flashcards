@@ -19,21 +19,13 @@ class SelectionView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
 
     private val staffSpacing = LINE_SPACING * 5.5f
 
-    var enabledNotes: List<Note>? = null
-
     init {
         Note.bassNotes.forEach {
             val selectableNote = SelectableNoteArea(context, STROKE_WIDTH, LINE_SPACING, it)
-            if (enabledNotes != null && enabledNotes!!.contains(it)) {
-                selectableNote.select()
-            }
             selectableNotes.add(selectableNote)
         }
         Note.trebleNotes.forEach {
             val selectableNote = SelectableNoteArea(context, STROKE_WIDTH, LINE_SPACING, it)
-            if (enabledNotes != null && enabledNotes!!.contains(it)) {
-                selectableNote.select()
-            }
             selectableNotes.add(selectableNote)
         }
     }
@@ -87,10 +79,21 @@ class SelectionView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
         return true
     }
 
-    fun exportConfig():List<Note>{
+    fun loadConfig(enabledNotes: EnabledNotes?) {
+        enabledNotes ?: return
+        val noteList = EnabledNotes.stringToNotes(enabledNotes.notes)
+        if (noteList.isEmpty()) return
+        selectableNotes.forEach {
+            if (noteList.contains(it.note)) {
+                it.select()
+            }
+        }
+    }
+
+    fun exportConfig(): List<Note> {
         val enabledNotes = mutableListOf<Note>()
-        selectableNotes.forEach{
-            if (it.isSelected()){
+        selectableNotes.forEach {
+            if (it.isSelected()) {
                 enabledNotes.add(it.note)
             }
         }
