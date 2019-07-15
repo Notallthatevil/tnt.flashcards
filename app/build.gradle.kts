@@ -4,10 +4,11 @@ plugins {
     id("kotlin-android-extensions")
     kotlin("kapt")
 }
+apply(plugin = "androidx.navigation.safeargs.kotlin")
 
 android {
-    compileSdkVersion(29)
-    buildToolsVersion("29.0.0")
+    compileSdkVersion(28)
+    buildToolsVersion("28.0.3")
     defaultConfig {
         applicationId = "com.trippntechnology.tnt.flashcards"
         minSdkVersion(21)
@@ -16,12 +17,15 @@ android {
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -45,10 +49,10 @@ dependencies {
     //Easy permissions
     implementation("pub.devrel:easypermissions:3.0.0")
     //Nav graph
-    implementation("android.arch.navigation:navigation-fragment-ktx:1.0.0")
-    implementation("android.arch.navigation:navigation-ui-ktx:1.0.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.1.0-alpha06")
+    implementation("androidx.navigation:navigation-ui-ktx:2.1.0-alpha06")
     //Cardview
-    implementation("com.google.android.material:material:1.1.0-alpha07")
+    implementation("com.google.android.material:material:1.1.0-alpha08")
     //Timber
     implementation("com.jakewharton.timber:timber:4.7.1")
     //Coroutines
