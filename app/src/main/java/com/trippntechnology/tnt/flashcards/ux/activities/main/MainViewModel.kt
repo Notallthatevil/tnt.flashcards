@@ -2,23 +2,25 @@ package com.trippntechnology.tnt.flashcards.ux.activities.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.trippntechnology.tnt.flashcards.database.EnabledNotesRepository
-import com.trippntechnology.tnt.flashcards.objects.enablednotes.EnabledNotes
+import com.trippntechnology.tnt.flashcards.database.NoteConfigurationRepository
+import com.trippntechnology.tnt.flashcards.objects.noteconfiguration.NoteConfiguration
 import com.trippntechnology.tnt.flashcards.objects.note.Note
+import com.trippntechnology.tnt.flashcards.util.livedata.SingleLiveEvent
 import com.trippntechnology.tnt.flashcards.util.viewmodels.BaseViewModel
 import com.vikingsen.inject.viewmodel.ViewModelInject
 import kotlinx.coroutines.launch
 
-class MainViewModel @ViewModelInject constructor(private val enabledNotesRepository: EnabledNotesRepository) :
+class MainViewModel @ViewModelInject constructor(private val noteConfigurationRepository: NoteConfigurationRepository) :
     BaseViewModel() {
 
     val mainViewModelEvent = MutableLiveData<Int>()
     val enabledNotesList = retrieveNoteConfigs()
+    val loadConfig = SingleLiveEvent<Long>()
 
-    var loadedConfig: EnabledNotes? = null
+    var loadedConfig: NoteConfiguration? = null
 
-    private fun retrieveNoteConfigs(): LiveData<List<EnabledNotes>> {
-        return enabledNotesRepository.getEnabledNotesListLiveData()
+    private fun retrieveNoteConfigs(): LiveData<List<NoteConfiguration>> {
+        return noteConfigurationRepository.getNoteConfigListLiveData()
     }
 
     fun newEnabledNotesConfig() {
@@ -26,19 +28,18 @@ class MainViewModel @ViewModelInject constructor(private val enabledNotesReposit
         mainViewModelEvent.postValue(EVENT_NEW_ENABLED_NOTES_CONFIG)
     }
 
-    fun showFlashCards(enabledNotesConfig: EnabledNotes) {
+    fun showFlashCards(noteConfigurationConfig: NoteConfiguration) {
 
     }
 
-    fun loadConfig(enabledNotesConfig: EnabledNotes) {
-        loadedConfig = enabledNotesConfig
-        mainViewModelEvent.postValue(EVENT_LOAD_CONFIG)
+    fun loadConfig(noteConfig: NoteConfiguration) {
+        loadConfig.value = noteConfig.id
     }
 
     fun saveNoteConfig(id: Long, name: String, noteList: List<Note>) {
-        val enabledNotes = EnabledNotes(id, name, noteList)
+        val noteConfig = NoteConfiguration(id, name, noteList)
         launch {
-            enabledNotesRepository.saveEnabledNotesConfig(enabledNotes)
+            noteConfigurationRepository.saveNoteConfig(noteConfig)
         }
         mainViewModelEvent.postValue(EVENT_CONFIG_SAVED)
     }

@@ -6,21 +6,23 @@
 
         <variable
             name="viewModel"
-            type="com.trippntechnology.tnt.flashcards.ux.activities.main.MainViewModel" />
+            type="com.trippntechnology.tnt.flashcards.ux.fragments.main.noteconfigurationlist.NoteConfigurationViewModel" />
 
         <variable
-            name="enabledNotesConfig"
-            type="com.trippntechnology.tnt.flashcards.objects.enablednotes.EnabledNotes" />
+            name="noteConfiguration"
+            type="com.trippntechnology.tnt.flashcards.objects.noteconfiguration.NoteConfiguration" />
     </data>
 
+    <!--    Need to add the id and set onLongClick listener in the adapter due to being unable to find longClick here-->
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/list_item_row_temp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:selectableItemBackground"
-        android:onClick="@{()->viewModel.loadConfig(enabledNotesConfig)}"
+        android:onClick="@{()->viewModel.displayPacket(noteConfiguration)}"
         android:orientation="vertical">
-<!--        android:onLongClick="@{(view)->viewModel.loadConfig(view,enabledNotesConfig)"-->
 
+        <!--        android:onLongClick="@{(view)->viewModel.loadConfig(view,noteConfigurationConfig)"-->
 
         <TextView
             android:id="@+id/listItemText"
@@ -28,9 +30,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="@{enabledNotesConfig.name}"
+            android:text="@{noteConfiguration.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

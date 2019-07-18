@@ -1,4 +1,4 @@
-package com.trippntechnology.tnt.flashcards.util
+package com.trippntechnology.tnt.flashcards.util.livedata
 
 import androidx.annotation.MainThread
 import androidx.annotation.WorkerThread

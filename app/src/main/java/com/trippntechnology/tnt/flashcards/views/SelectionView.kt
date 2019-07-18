@@ -5,7 +5,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
 import android.view.MotionEvent
-import com.trippntechnology.tnt.flashcards.objects.enablednotes.EnabledNotes
+import com.trippntechnology.tnt.flashcards.objects.noteconfiguration.NoteConfiguration
 import com.trippntechnology.tnt.flashcards.objects.enums.clefvalue.ClefValue
 import com.trippntechnology.tnt.flashcards.objects.note.Note
 import com.trippntechnology.tnt.flashcards.util.view.BaseView
@@ -79,9 +79,9 @@ class SelectionView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
         return true
     }
 
-    fun loadConfig(enabledNotes: EnabledNotes?) {
-        enabledNotes ?: return
-        val noteList = EnabledNotes.stringToNotes(enabledNotes.notes)
+    fun loadConfig(noteConfiguration: NoteConfiguration?) {
+        noteConfiguration ?: return
+        val noteList = NoteConfiguration.stringToNotes(noteConfiguration.notes)
         if (noteList.isEmpty()) return
         selectableNotes.forEach {
             if (noteList.contains(it.note)) {

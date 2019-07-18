@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/man_nav_graph"
-    app:startDestination="@id/enabledNotesListFragment">
+    app:startDestination="@id/noteConfigFragment">
 
     <fragment
-        android:id="@+id/enabledNotesListFragment"
-        android:name="com.trippntechnology.tnt.flashcards.ux.fragments.main.EnabledNotesListFragment"
-        android:label="EnabledNotesListFragment"
+        android:id="@+id/noteConfigFragment"
+        android:name="com.trippntechnology.tnt.flashcards.ux.fragments.main.noteconfigurationlist.NoteConfigurationListFragment"
+        android:label="NoteConfigurationFragment"
         tools:layout="@layout/fragment_enabled_notes_list_view">
         <action
-            android:id="@+id/action_enabledNotesListFragment_to_flashCardFragment"
-            app:destination="@id/flashCardFragment" />
+            android:id="@+id/showNoteConfig"
+            app:destination="@id/editConfigFragment" />
         <action
-            android:id="@+id/action_enabledNotesListFragment_to_selectNoteFragment"
-            app:destination="@id/selectNoteFragment" />
+            android:id="@+id/displayNotePacket"
+            app:destination="@id/flashCardFragment" />
     </fragment>
 
     <fragment
@@ -23,14 +23,19 @@
         android:name="com.trippntechnology.tnt.flashcards.ux.fragments.main.FlashCardFragment"
         android:label="FlashCardFragment"
         tools:layout="@layout/fragment_flash_card" />
+
     <fragment
-        android:id="@+id/selectNoteFragment"
-        android:name="com.trippntechnology.tnt.flashcards.ux.fragments.main.SelectNoteFragment"
+        android:id="@+id/editConfigFragment"
+        android:name="com.trippntechnology.tnt.flashcards.ux.fragments.main.noteeditconfig.NoteEditConfigFragment"
         android:label="SelectNoteFragment"
-        tools:layout="@layout/fragment_select_note">
+        tools:layout="@layout/fragment_edit_config">
         <action
-            android:id="@+id/action_selectNoteFragment_to_enabledNotesListFragment2"
-            app:destination="@id/enabledNotesListFragment"/>
+            android:id="@+id/editConfigAction"
+            app:destination="@id/noteConfigFragment" />
+        <argument
+            android:name="configId"
+            android:defaultValue="0L"
+            app:argType="long" />
     </fragment>
 
 </navigation>

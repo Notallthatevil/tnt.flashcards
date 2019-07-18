@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.trippntechnology.tnt.flashcards.ux.activities.main.MainViewModel" />
+            type="com.trippntechnology.tnt.flashcards.ux.fragments.main.noteeditconfig.NoteEditConfigViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,7 +31,7 @@
                 android:minWidth="250dp"
                 android:maxLines="1"
                 android:maxLength="35"
-                android:text="@{viewModel.loadedConfig.name}"
+                android:text="@{viewModel.noteConfig.name}"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
         </com.google.android.material.textfield.TextInputLayout>

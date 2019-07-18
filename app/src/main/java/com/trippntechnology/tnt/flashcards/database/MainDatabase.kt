@@ -2,16 +2,16 @@ package com.trippntechnology.tnt.flashcards.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.trippntechnology.tnt.flashcards.objects.enablednotes.EnabledNotes
-import com.trippntechnology.tnt.flashcards.objects.enablednotes.EnabledNotesDao
+import com.trippntechnology.tnt.flashcards.objects.noteconfiguration.NoteConfiguration
+import com.trippntechnology.tnt.flashcards.objects.noteconfiguration.NoteConfigurationDao
 
 
 @Database(
-    entities = [EnabledNotes::class],
+    entities = [NoteConfiguration::class],
     version = 1
 )
 abstract class MainDatabase : RoomDatabase() {
-    abstract val EnabledNotesDao: EnabledNotesDao
+    abstract val NoteConfigurationDao: NoteConfigurationDao
 
 
 

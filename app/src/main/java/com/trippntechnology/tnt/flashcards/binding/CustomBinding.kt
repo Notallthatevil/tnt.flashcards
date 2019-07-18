@@ -3,8 +3,6 @@ package com.trippntechnology.tnt.flashcards.binding
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.trippntechnology.tnt.flashcards.objects.enablednotes.EnabledNotes
-import com.trippntechnology.tnt.flashcards.views.SelectionView
 
 object CustomBinding {
 

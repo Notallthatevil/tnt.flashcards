@@ -13,12 +13,6 @@
     android:layout_height="match_parent"
     tools:context=".ux.activities.main.MainActivity">
 
-    <!--&lt;!&ndash;        <com.trippntechnology.tnt.flashcards.views.SelectionView&ndash;&gt;-->
-    <!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
-    <!--&lt;!&ndash;            android:layout_height="match_parent"&ndash;&gt;-->
-    <!--&lt;!&ndash;            app:line_space="@dimen/selection_view_line_space"&ndash;&gt;-->
-    <!--&lt;!&ndash;            app:stroke_width="@dimen/selection_view_stroke_width"/>&ndash;&gt;-->
-
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/flashCardCardView"

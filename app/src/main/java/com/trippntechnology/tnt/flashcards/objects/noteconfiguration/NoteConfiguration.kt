@@ -1,4 +1,4 @@
-package com.trippntechnology.tnt.flashcards.objects.enablednotes
+package com.trippntechnology.tnt.flashcards.objects.noteconfiguration
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -6,8 +6,8 @@ import com.trippntechnology.tnt.flashcards.objects.enums.clefvalue.ClefValue
 import com.trippntechnology.tnt.flashcards.objects.enums.notevalue.NoteValue
 import com.trippntechnology.tnt.flashcards.objects.note.Note
 
-@Entity(tableName = "enabled_notes")
-data class EnabledNotes(
+@Entity(tableName = "note_configuration")
+data class NoteConfiguration(
     @PrimaryKey(autoGenerate = true) var id: Long = 0, val name: String, val notes: String
 ) {
 
@@ -16,10 +16,6 @@ data class EnabledNotes(
         name,
         notesToString(noteList)
     )
-
-    override fun hashCode(): Int {
-        return super.hashCode()
-    }
 
     companion object {
         fun notesToString(notes: List<Note>): String {

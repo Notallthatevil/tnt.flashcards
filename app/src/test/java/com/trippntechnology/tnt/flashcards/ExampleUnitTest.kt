@@ -1,6 +1,6 @@
 package com.trippntechnology.tnt.flashcards
 
-import com.trippntechnology.tnt.flashcards.objects.enablednotes.EnabledNotes
+import com.trippntechnology.tnt.flashcards.objects.noteconfiguration.NoteConfiguration
 import com.trippntechnology.tnt.flashcards.objects.enums.clefvalue.ClefValue
 import com.trippntechnology.tnt.flashcards.objects.enums.notevalue.NoteValue
 import com.trippntechnology.tnt.flashcards.objects.note.Note
@@ -20,7 +20,7 @@ class ExampleUnitTest {
 
     @Test
     fun EnabledNotes_NotesToString() {
-        val sut = EnabledNotes.notesToString(
+        val sut = NoteConfiguration.notesToString(
             listOf(
                 Note(ClefValue.BASS, NoteValue.HIGH_A),
                 Note(ClefValue.BASS, NoteValue.HIGH_B),
@@ -42,7 +42,7 @@ class ExampleUnitTest {
     @Test
     fun EnabledNotes_StringToNotes() {
         val sut =
-            EnabledNotes.stringToNotes("BASS:HIGH_A, BASS:HIGH_B, BASS:HIGH_C, BASS:HIGH_D, BASS:HIGH_E, BASS:HIGH_F, BASS:HIGH_G, TREBLE:X_HIGH_A, TREBLE:X_HIGH_B, TREBLE:X_HIGH_C")
+            NoteConfiguration.stringToNotes("BASS:HIGH_A, BASS:HIGH_B, BASS:HIGH_C, BASS:HIGH_D, BASS:HIGH_E, BASS:HIGH_F, BASS:HIGH_G, TREBLE:X_HIGH_A, TREBLE:X_HIGH_B, TREBLE:X_HIGH_C")
         val expected =
             listOf(
                 Note(ClefValue.BASS, NoteValue.HIGH_A),
