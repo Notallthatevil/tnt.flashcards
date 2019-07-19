@@ -10,11 +10,7 @@
         android:label="NoteConfigurationListFragment">
         <action
             android:id="@+id/action_noteConfigurationListFragment_to_noteEditConfigFragment"
-            app:destination="@id/noteEditConfigFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:destination="@id/noteEditConfigFragment" />
     </fragment>
     <fragment
         android:id="@+id/noteEditConfigFragment"
