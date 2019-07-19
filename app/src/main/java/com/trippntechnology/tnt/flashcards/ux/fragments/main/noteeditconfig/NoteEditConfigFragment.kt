@@ -46,6 +46,9 @@ class NoteEditConfigFragment : BaseFragment() {
 //        }
         //        viewModel.setConfigId(args.configId)
         super.onViewCreated(view, savedInstanceState)
+        editConfig.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     override fun setUpObservers() {
