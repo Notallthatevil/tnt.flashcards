@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/man_nav_graph"
     app:startDestination="@id/noteConfigurationListFragment">
 
     <fragment
         android:id="@+id/noteConfigurationListFragment"
         android:name="com.trippntechnology.tnt.flashcards.ux.fragments.main.noteconfigurationlist.NoteConfigurationListFragment"
-        android:label="NoteConfigurationListFragment"
-        tools:layout="@layout/fragment_note_configuration_list_view">
+        android:label="NoteConfigurationListFragment">
         <action
             android:id="@+id/action_noteConfigurationListFragment_to_noteEditConfigFragment"
-            app:destination="@id/noteEditConfigFragment" />
+            app:destination="@id/noteEditConfigFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/noteEditConfigFragment"
