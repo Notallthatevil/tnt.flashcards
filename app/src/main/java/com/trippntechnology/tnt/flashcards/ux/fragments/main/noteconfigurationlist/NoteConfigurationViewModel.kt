@@ -1,5 +1,6 @@
 package com.trippntechnology.tnt.flashcards.ux.fragments.main.noteconfigurationlist
 
+import androidx.lifecycle.MutableLiveData
 import com.trippntechnology.tnt.flashcards.database.NoteConfigurationRepository
 import com.trippntechnology.tnt.flashcards.objects.noteconfiguration.NoteConfiguration
 import com.trippntechnology.tnt.flashcards.util.livedata.SingleLiveEvent
@@ -11,8 +12,8 @@ class NoteConfigurationViewModel @ViewModelInject constructor(noteConfigurationR
 
     val noteConfigList = noteConfigurationRepository.getNoteConfigListLiveData()
 
-    val loadConfig = SingleLiveEvent<Long>()
-    val displayPacket = SingleLiveEvent<Long>()
+    val loadConfig = MutableLiveData<Long>()
+    val displayPacket = MutableLiveData<Long>()
 
 
     fun loadConfig(noteConfiguration: NoteConfiguration?){
