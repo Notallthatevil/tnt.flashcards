@@ -13,13 +13,16 @@
         android:id="@+id/listConfig"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/colorPrimary">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewSelectedNotesList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-        <!--    app:list="@{viewModel.noteConfigList}"-->
+            android:layout_height="200dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:list="@{viewModel.noteConfigList}" />
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButton"
             android:layout_width="56dp"
@@ -30,8 +33,9 @@
             android:focusable="true"
             app:backgroundTint="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-        <!--    android:onClick="@{()->viewModel.newNoteConfig()}"-->
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{()->viewModel.newNoteConfig()}"/>
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
