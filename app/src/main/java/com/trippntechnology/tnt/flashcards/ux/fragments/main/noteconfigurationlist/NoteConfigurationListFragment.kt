@@ -15,7 +15,7 @@ import com.trippntechnology.tnt.flashcards.injector.Injector
 import com.trippntechnology.tnt.flashcards.util.fragments.BaseFragment
 import com.trippntechnology.tnt.flashcards.ux.adapters.NoteConfigurationListAdapter
 import com.vikingsen.inject.viewmodel.ViewModelFactory
-import kotlinx.android.synthetic.main.fragment_enabled_notes_list_view.*
+import kotlinx.android.synthetic.main.fragment_note_configuration_list_view.*
 import javax.inject.Inject
 
 class NoteConfigurationListFragment : BaseFragment() {
@@ -38,7 +38,7 @@ class NoteConfigurationListFragment : BaseFragment() {
 //    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_enabled_notes_list_view,container,false)
+        return inflater.inflate(R.layout.fragment_note_configuration_list_view,container,false)
 //        binding = DataBindingUtil.inflate(
 //            inflater, R.layout.fragment_enabled_notes_list_view, container, false
 //        )

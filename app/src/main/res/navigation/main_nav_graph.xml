@@ -5,50 +5,11 @@
     android:id="@+id/man_nav_graph"
     app:startDestination="@id/noteConfigurationListFragment">
 
-
-
-
-
-<!--    <fragment-->
-<!--        android:id="@+id/noteConfigFragment"-->
-<!--        android:name="com.trippntechnology.tnt.flashcards.ux.fragments.main.noteconfigurationlist.NoteConfigurationListFragment"-->
-<!--        android:label="NoteConfigurationFragment"-->
-<!--        tools:layout="@layout/fragment_enabled_notes_list_view">-->
-<!--&lt;!&ndash;        <action&ndash;&gt;-->
-<!--&lt;!&ndash;            android:id="@+id/showNoteConfig"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:destination="@id/editConfigFragment" />&ndash;&gt;-->
-<!--&lt;!&ndash;        <action&ndash;&gt;-->
-<!--&lt;!&ndash;            android:id="@+id/displayNotePacket"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:destination="@id/flashCardFragment" />&ndash;&gt;-->
-<!--        <action-->
-<!--            android:id="@+id/action_noteConfigFragment_to_editConfigFragment"-->
-<!--            app:destination="@id/editConfigFragment" />-->
-<!--    </fragment>-->
-
-<!--    <fragment-->
-<!--        android:id="@+id/flashCardFragment"-->
-<!--        android:name="com.trippntechnology.tnt.flashcards.ux.fragments.main.FlashCardFragment"-->
-<!--        android:label="FlashCardFragment"-->
-<!--        tools:layout="@layout/fragment_flash_card" />-->
-
-<!--    <fragment-->
-<!--        android:id="@+id/editConfigFragment"-->
-<!--        android:name="com.trippntechnology.tnt.flashcards.ux.fragments.main.noteeditconfig.NoteEditConfigFragment"-->
-<!--        android:label="SelectNoteFragment"-->
-<!--        tools:layout="@layout/fragment_edit_config">-->
-<!--&lt;!&ndash;        <action&ndash;&gt;-->
-<!--&lt;!&ndash;            android:id="@+id/editConfigAction"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:destination="@id/noteConfigFragment" />&ndash;&gt;-->
-<!--&lt;!&ndash;        <argument&ndash;&gt;-->
-<!--&lt;!&ndash;            android:name="configId"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:defaultValue="0L"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:argType="long" />&ndash;&gt;-->
-<!--    </fragment>-->
-
     <fragment
         android:id="@+id/noteConfigurationListFragment"
         android:name="com.trippntechnology.tnt.flashcards.ux.fragments.main.noteconfigurationlist.NoteConfigurationListFragment"
-        android:label="NoteConfigurationListFragment" >
+        android:label="NoteConfigurationListFragment"
+        tools:layout="@layout/fragment_note_configuration_list_view">
         <action
             android:id="@+id/action_noteConfigurationListFragment_to_noteEditConfigFragment"
             app:destination="@id/noteEditConfigFragment" />
