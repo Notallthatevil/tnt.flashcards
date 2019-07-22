@@ -17,6 +17,10 @@ data class NoteConfiguration(
         notesToString(noteList)
     )
 
+    override fun toString(): String {
+        return "$name: Contains ${notes.length} notes"
+    }
+
     companion object {
         fun notesToString(notes: List<Note>): String {
             var dataString = ""
