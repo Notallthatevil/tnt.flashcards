@@ -8,12 +8,23 @@
         android:id="@+id/noteConfigurationListFragment"
         android:name="com.trippntechnology.tnt.flashcards.ux.fragments.main.noteconfigurationlist.NoteConfigurationListFragment"
         android:label="NoteConfigurationListFragment">
+
+
         <action
-            android:id="@+id/action_noteConfigurationListFragment_to_noteEditConfigFragment"
+            android:id="@+id/showNoteConfig"
             app:destination="@id/noteEditConfigFragment" />
     </fragment>
+
+
     <fragment
         android:id="@+id/noteEditConfigFragment"
         android:name="com.trippntechnology.tnt.flashcards.ux.fragments.main.noteeditconfig.NoteEditConfigFragment"
-        android:label="NoteEditConfigFragment" />
+        android:label="NoteEditConfigFragment" >
+        <argument
+            android:name="configId"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
+
+
 </navigation>

@@ -12,9 +12,8 @@ class NoteConfigurationViewModel @ViewModelInject constructor(noteConfigurationR
 
     val noteConfigList = noteConfigurationRepository.getNoteConfigListLiveData()
 
-    val loadConfig = MutableLiveData<Long>()
-    val displayPacket = MutableLiveData<Long>()
-
+    val loadConfig = SingleLiveEvent<Long>()
+    val displayPacket = SingleLiveEvent<Long>()
 
     fun loadConfig(noteConfiguration: NoteConfiguration?){
         noteConfiguration?:return
@@ -28,5 +27,4 @@ class NoteConfigurationViewModel @ViewModelInject constructor(noteConfigurationR
     fun newNoteConfig(){
         loadConfig.value = 0
     }
-
 }
