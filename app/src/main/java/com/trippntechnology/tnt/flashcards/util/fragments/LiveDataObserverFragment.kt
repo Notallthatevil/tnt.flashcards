@@ -6,11 +6,11 @@ import androidx.lifecycle.Observer
 
 abstract class LiveDataObserverFragment : Fragment() {
     protected inline fun <T> LiveData<T>.observe(crossinline block: (T?) -> Unit) {
-        observe(this@LiveDataObserverFragment, Observer { block(it) })
+        observe(viewLifecycleOwner, Observer { block(it) })
     }
 
     protected inline fun <T> LiveData<T>.observeNotNull(crossinline block: (T) -> Unit) {
-        observe(this@LiveDataObserverFragment, Observer {
+        observe(viewLifecycleOwner, Observer {
             it ?: return@Observer
             block(it)
         })

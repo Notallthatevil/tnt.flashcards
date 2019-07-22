@@ -13,7 +13,8 @@ abstract class BaseFragment : LiveDataObserverFragment(), CoroutineScope by Main
     }
 
     @CallSuper
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         setUpObservers()
     }
 
