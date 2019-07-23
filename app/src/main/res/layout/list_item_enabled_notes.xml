@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.trippntechnology.tnt.flashcards.ux.fragments.main.noteconfigurationlist.NoteConfigurationViewModel" />
+            type="com.trippntechnology.tnt.flashcards.ux.fragments.main.noteconfigurationlist.NoteConfigurationListViewModel" />
 
         <variable
             name="noteConfiguration"
@@ -21,8 +21,7 @@
         android:background="?android:selectableItemBackground"
         android:onClick="@{()->viewModel.displayPacket(noteConfiguration)}"
         android:orientation="vertical">
-
-        <!--        android:onLongClick="@{(view)->viewModel.loadConfig(view,noteConfigurationConfig)"-->
+<!--        android:onLongClick="@()->viewModel.loadConfig(noteConfiguration)}"-->
 
         <TextView
             android:id="@+id/listItemText"

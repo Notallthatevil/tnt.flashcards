@@ -30,10 +30,10 @@
                 android:hint="@string/config_name"
                 android:maxLength="35"
                 android:maxLines="1"
+                android:text="@{viewModel.noteConfig.name}"
                 android:minWidth="250dp"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
-            <!--        android:text="@{viewModel.noteConfig.name}"-->
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.trippntechnology.tnt.flashcards.views.SelectionView
@@ -42,6 +42,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
+            app:setConfig="@{viewModel.noteConfig}"
             app:layout_constraintBottom_toTopOf="@+id/selectionButtonCancel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,9 +57,9 @@
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
             android:text="@string/save"
+            android:onClick="@{()->viewModel.saveConfigButton()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
-        <!--    android:onClick="@{()->viewModel.saveConfigButton()}"-->
 
 
         <com.google.android.material.button.MaterialButton
@@ -69,9 +70,9 @@
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
             android:text="@string/cancel"
+            android:onClick="@{()->viewModel.cancelConfigButton()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/selectionButtonSave" />
-        <!--            android:onClick="@{()->viewModel.cancelConfigButton()}"-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

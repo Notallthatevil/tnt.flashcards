@@ -10,17 +10,20 @@ import com.trippntechnology.tnt.flashcards.util.livedata.SingleLiveEvent
 import com.trippntechnology.tnt.flashcards.util.viewmodels.BaseViewModel
 import com.vikingsen.inject.viewmodel.ViewModelInject
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class NoteEditConfigViewModel @ViewModelInject constructor(private val noteConfigurationRepository: NoteConfigurationRepository) :
     BaseViewModel() {
 
-    private val noteConfigId = MutableLiveData<Long>()
     val noteConfig: LiveData<NoteConfiguration>
-    val viewModelEvent = MutableLiveData<Int>()
+
+    private val noteConfigId = MutableLiveData<Long>()
+    val viewModelEvent = SingleLiveEvent<Int>()
 
 
     init {
         noteConfig = AbsentLiveData.switchMap(noteConfigId) {
+            Timber.d("Retrieving config ${noteConfigId.value} from database")
             noteConfigurationRepository.getNoteConfigById(it)
         }
     }

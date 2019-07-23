@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.trippntechnology.tnt.flashcards.ux.fragments.main.noteconfigurationlist.NoteConfigurationViewModel" />
+            type="com.trippntechnology.tnt.flashcards.ux.fragments.main.noteconfigurationlist.NoteConfigurationListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

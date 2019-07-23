@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -32,6 +34,9 @@ android {
     dataBinding {
         isEnabled = true
     }
+    (kotlinOptions as (KotlinJvmOptions)).apply {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
@@ -49,8 +54,8 @@ dependencies {
     //Easy permissions
     implementation("pub.devrel:easypermissions:3.0.0")
     //Nav graph
-    implementation("androidx.navigation:navigation-fragment-ktx:2.1.0-alpha06")
-    implementation("androidx.navigation:navigation-ui-ktx:2.1.0-alpha06")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.1.0-beta02")
+    implementation("androidx.navigation:navigation-ui-ktx:2.1.0-beta02")
     //Cardview
     implementation("com.google.android.material:material:1.1.0-alpha08")
     //Timber

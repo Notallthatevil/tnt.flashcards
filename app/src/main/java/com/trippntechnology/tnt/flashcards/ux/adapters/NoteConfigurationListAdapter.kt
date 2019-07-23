@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.trippntechnology.tnt.flashcards.R
 import com.trippntechnology.tnt.flashcards.databinding.ListItemEnabledNotesBinding
 import com.trippntechnology.tnt.flashcards.objects.noteconfiguration.NoteConfiguration
-import com.trippntechnology.tnt.flashcards.ux.fragments.main.noteconfigurationlist.NoteConfigurationViewModel
+import com.trippntechnology.tnt.flashcards.ux.fragments.main.noteconfigurationlist.NoteConfigurationListViewModel
 
 class NoteConfigurationListAdapter(
-    private val viewModel: NoteConfigurationViewModel
+    private val viewModel: NoteConfigurationListViewModel
 ) : ListAdapter<NoteConfiguration, NoteConfigurationListAdapter.ViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

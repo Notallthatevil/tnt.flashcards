@@ -88,6 +88,7 @@ class SelectionView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
                 it.select()
             }
         }
+        invalidate()
     }
 
     fun exportConfig(): List<Note> {

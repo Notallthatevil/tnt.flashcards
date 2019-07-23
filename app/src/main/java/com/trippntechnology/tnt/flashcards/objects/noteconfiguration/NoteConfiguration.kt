@@ -18,7 +18,7 @@ data class NoteConfiguration(
     )
 
     override fun toString(): String {
-        return "$name: Contains ${notes.length} notes"
+        return "$name, id = $id"
     }
 
     companion object {

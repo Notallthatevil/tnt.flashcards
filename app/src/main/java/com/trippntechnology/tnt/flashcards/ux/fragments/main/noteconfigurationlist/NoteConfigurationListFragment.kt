@@ -15,7 +15,7 @@ import com.trippntechnology.tnt.flashcards.injector.Injector
 import com.trippntechnology.tnt.flashcards.util.fragments.BaseFragment
 import com.trippntechnology.tnt.flashcards.ux.adapters.NoteConfigurationListAdapter
 import com.vikingsen.inject.viewmodel.ViewModelFactory
-import kotlinx.android.synthetic.main.fragment_note_configuration_list_view.*
+import timber.log.Timber
 import javax.inject.Inject
 
 class NoteConfigurationListFragment : BaseFragment() {
@@ -26,7 +26,7 @@ class NoteConfigurationListFragment : BaseFragment() {
 
     private lateinit var binding: FragmentNoteConfigurationListViewBinding
 
-    private val viewModel by lazy { ViewModelProviders.of(this, viewModelFactory).get(NoteConfigurationViewModel::class.java) }
+    private val viewModel by lazy { ViewModelProviders.of(this, viewModelFactory).get(NoteConfigurationListViewModel::class.java) }
 
     private val adapter by lazy { NoteConfigurationListAdapter(viewModel) }
 
@@ -61,7 +61,8 @@ class NoteConfigurationListFragment : BaseFragment() {
         //            Snackbar.make(binding.root, "Clicked packet id: $it", Snackbar.LENGTH_LONG).show()
         //        }
         viewModel.loadConfig.observe {
-            val directions = NoteConfigurationListFragmentDirections.showNoteConfig()
+            Timber.d("Loading config $it")
+            val directions = NoteConfigurationListFragmentDirections.showNoteConfig(it!!)
             findNavController().navigate(directions)
         }
     }
