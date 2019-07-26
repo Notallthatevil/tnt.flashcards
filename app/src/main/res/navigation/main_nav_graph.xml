@@ -13,6 +13,9 @@
         <action
             android:id="@+id/showNoteConfig"
             app:destination="@id/noteEditConfigFragment" />
+        <action
+            android:id="@+id/openPacket"
+            app:destination="@id/flashCardsFragment" />
     </fragment>
 
 
@@ -24,6 +27,14 @@
             android:name="configId"
             app:argType="long"
             android:defaultValue="0L" />
+    </fragment>
+    <fragment
+        android:id="@+id/flashCardsFragment"
+        android:name="com.trippntechnology.tnt.flashcards.ux.fragments.main.flashcards.FlashCardsFragment"
+        android:label="FlashCardsFragment" >
+        <argument
+            android:name="configId"
+            app:argType="long" />
     </fragment>
 
 

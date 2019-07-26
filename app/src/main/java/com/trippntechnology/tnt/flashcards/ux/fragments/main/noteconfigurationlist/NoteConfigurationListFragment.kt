@@ -26,7 +26,10 @@ class NoteConfigurationListFragment : BaseFragment() {
 
     private lateinit var binding: FragmentNoteConfigurationListViewBinding
 
-    private val viewModel by lazy { ViewModelProviders.of(this, viewModelFactory).get(NoteConfigurationListViewModel::class.java) }
+    private val viewModel by lazy {
+        ViewModelProviders.of(this, viewModelFactory)
+            .get(NoteConfigurationListViewModel::class.java)
+    }
 
     private val adapter by lazy { NoteConfigurationListAdapter(viewModel) }
 
@@ -34,7 +37,11 @@ class NoteConfigurationListFragment : BaseFragment() {
         Injector.get().inject(this)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         //        return inflater.inflate(R.layout.fragment_note_configuration_list_view,container,false)
         binding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_note_configuration_list_view, container, false
@@ -45,7 +52,7 @@ class NoteConfigurationListFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.apply {
             viewModel = this@NoteConfigurationListFragment.viewModel
-            lifecycleOwner = this@NoteConfigurationListFragment
+            lifecycleOwner = viewLifecycleOwner
             recyclerViewSelectedNotesList.layoutManager = LinearLayoutManager(requireContext())
             recyclerViewSelectedNotesList.adapter = this@NoteConfigurationListFragment.adapter
             recyclerViewSelectedNotesList.addItemDecoration(
@@ -57,12 +64,14 @@ class NoteConfigurationListFragment : BaseFragment() {
     }
 
     override fun setUpObservers() {
-        //        viewModel.displayPacket.observeNotNull {
-        //            Snackbar.make(binding.root, "Clicked packet id: $it", Snackbar.LENGTH_LONG).show()
-        //        }
-        viewModel.loadConfig.observe {
+        viewModel.openPacket.observeNotNull {
+            Timber.d("Opening packet $it")
+            val directions = NoteConfigurationListFragmentDirections.openPacket(it)
+            findNavController().navigate(directions)
+        }
+        viewModel.loadConfig.observeNotNull {
             Timber.d("Loading config $it")
-            val directions = NoteConfigurationListFragmentDirections.showNoteConfig(it!!)
+            val directions = NoteConfigurationListFragmentDirections.showNoteConfig(it)
             findNavController().navigate(directions)
         }
     }

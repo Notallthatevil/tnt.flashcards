@@ -24,7 +24,10 @@ interface NoteConfigurationDao {
     fun selectAllLiveData(): LiveData<List<NoteConfiguration>>
 
     @Query("SELECT * FROM note_configuration WHERE id = :id")
-    fun getById(id: Long):LiveData<NoteConfiguration>
+    fun getById(id: Long):NoteConfiguration
+
+    @Query("SELECT * FROM note_configuration WHERE id = :id")
+    fun getByIdLiveData(id: Long):LiveData<NoteConfiguration>
 
     @Query("DELETE FROM note_configuration WHERE id = :id")
     fun deleteById(id: Long)

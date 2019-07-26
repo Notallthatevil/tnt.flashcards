@@ -10,12 +10,16 @@ import com.trippntechnology.tnt.flashcards.objects.note.Note
 data class NoteConfiguration(
     @PrimaryKey(autoGenerate = true) var id: Long = 0, val name: String, val notes: String
 ) {
-
     constructor(id: Long = 0, name: String, noteList: List<Note>) : this(
         id,
         name,
         notesToString(noteList)
     )
+
+    fun getnotes():List<Note>{
+        return stringToNotes(notes)
+    }
+
 
     override fun toString(): String {
         return "$name, id = $id"

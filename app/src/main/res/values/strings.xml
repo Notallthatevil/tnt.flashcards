@@ -9,4 +9,18 @@
     <string name="config_name_required">A name must be entered before you can save</string>
     <string name="config_selection_required">You must select at least one note to show</string>
 
+    <string name="delete">Delete</string>
+
+    <string name="error_occurred">An error has occurred, please try again</string>
+
+    <string name="no_packet">No packet was selected</string>
+
+    <string name="a">A</string>
+    <string name="b">B</string>
+    <string name="c">C</string>
+    <string name="d">D</string>
+    <string name="e">E</string>
+    <string name="f">F</string>
+    <string name="g">G</string>
+
 </resources>

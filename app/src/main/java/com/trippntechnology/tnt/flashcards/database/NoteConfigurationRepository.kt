@@ -14,6 +14,7 @@ class NoteConfigurationRepository @Inject constructor(private val mainDatabaseWr
 
     fun getNoteConfigListLiveData() = noteConfigDao().selectAllLiveData()
     fun getNoteConfigById(id: Long) = noteConfigDao().getById(id)
+    fun getNoteConfigByIdLiveData(id: Long) = noteConfigDao().getByIdLiveData(id)
     fun getNoteConfigList() = noteConfigDao().selectAll()
     fun getNoteConfigCount() = noteConfigDao().count()
     fun deleteAllNoteConfig() = noteConfigDao().deleteAll()

@@ -24,7 +24,7 @@ class NoteEditConfigViewModel @ViewModelInject constructor(private val noteConfi
     init {
         noteConfig = AbsentLiveData.switchMap(noteConfigId) {
             Timber.d("Retrieving config ${noteConfigId.value} from database")
-            noteConfigurationRepository.getNoteConfigById(it)
+            noteConfigurationRepository.getNoteConfigByIdLiveData(it)
         }
     }
 
@@ -46,6 +46,18 @@ class NoteEditConfigViewModel @ViewModelInject constructor(private val noteConfi
 
     fun cancelConfigButton() {
         viewModelEvent.postValue(EVENT_FINISHED)
+    }
+
+
+    fun deleteConfig(configId: Long): Boolean {
+        if (configId != noteConfigId.value){
+            return false
+        }
+        launch {
+            noteConfigurationRepository.deleteNoteConfigById(configId)
+            viewModelEvent.postValue(EVENT_FINISHED)
+        }
+        return true
     }
 
     companion object {

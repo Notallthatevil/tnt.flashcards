@@ -1,10 +1,7 @@
 package com.trippntechnology.tnt.flashcards.ux.fragments.main.noteeditconfig
 
-//import com.trippntechnology.tnt.flashcards.databinding.FragmentEditConfigBinding
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
@@ -17,6 +14,7 @@ import com.trippntechnology.tnt.flashcards.util.fragments.BaseFragment
 import com.trippntechnology.tnt.flashcards.ux.fragments.main.noteeditconfig.NoteEditConfigViewModel.Companion.EVENT_FINISHED
 import com.trippntechnology.tnt.flashcards.ux.fragments.main.noteeditconfig.NoteEditConfigViewModel.Companion.EVENT_SAVE
 import com.vikingsen.inject.viewmodel.ViewModelFactory
+import timber.log.Timber
 import javax.inject.Inject
 
 class NoteEditConfigFragment : BaseFragment() {
@@ -26,7 +24,7 @@ class NoteEditConfigFragment : BaseFragment() {
     lateinit var viewModelFactory: ViewModelFactory
 
     private val viewModel by lazy {
-        ViewModelProviders.of(requireActivity(), viewModelFactory)
+        ViewModelProviders.of(this, viewModelFactory)
             .get(NoteEditConfigViewModel::class.java)
     }
     private lateinit var binding: FragmentEditConfigBinding
@@ -35,10 +33,10 @@ class NoteEditConfigFragment : BaseFragment() {
 
     init {
         Injector.get().inject(this)
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        //            return inflater.inflate(R.layout.fragment_edit_config,container,false)
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_edit_config, container, false)
         return binding.root
     }
@@ -77,7 +75,25 @@ class NoteEditConfigFragment : BaseFragment() {
                     findNavController().popBackStack()
                 }
             }
+        }
+    }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        if (args.configId >0){
+            inflater.inflate(R.menu.menu_edit_config, menu)
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.edit_config_delete-> {
+                if (!viewModel.deleteConfig(args.configId)){
+                    Snackbar.make(binding.root,R.string.error_occurred,Snackbar.LENGTH_LONG).show()
+                }
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }
