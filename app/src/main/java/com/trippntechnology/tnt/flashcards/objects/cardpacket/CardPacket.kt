@@ -48,6 +48,7 @@ class CardPacket(listOfNotes: List<Note>, shuffle: Boolean = true, val allowForS
                 cardPacket.addAll(secondTryPacket)
                 secondTryPacket.clear()
                 retryPacketAdded = true
+                size = cardPacket.size
                 returnCurrentNote()
             }
             loop -> {
