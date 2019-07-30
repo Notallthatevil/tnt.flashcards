@@ -1,17 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="card_view_height">8dp</dimen>
-    <dimen name="card_view_corner_radius">8dp</dimen>
-
     <dimen name="selection_view_line_space">24dp</dimen>
     <dimen name="selection_view_stroke_width">1dp</dimen>
 
-    <dimen name="flash_card_line_space">48dp</dimen>
+    <dimen name="flash_card_line_space">24dp</dimen>
     <dimen name="flash_card_stroke_width">4dp</dimen>
 
     <dimen name="default_line_space">24dp</dimen>
     <dimen name="default_stroke_width">1dp</dimen>
-
-    <dimen name="answer_button_size">48dp</dimen>
 
 </resources>

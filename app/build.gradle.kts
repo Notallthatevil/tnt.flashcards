@@ -8,6 +8,12 @@ plugins {
 }
 apply(plugin = "androidx.navigation.safeargs.kotlin")
 
+val VERSION_CODE = 3
+
+val MAX_VERSION = "0"
+val MIN_VERSION = "1"
+val PATCH_VERSION = "2"
+
 android {
     compileSdkVersion(28)
     buildToolsVersion("28.0.3")
@@ -15,8 +21,8 @@ android {
         applicationId = "com.trippntechnology.tnt.flashcards"
         minSdkVersion(21)
         targetSdkVersion(29)
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = VERSION_CODE
+        versionName = "$MAX_VERSION.$MIN_VERSION.$PATCH_VERSION"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     compileOptions {
@@ -36,6 +42,21 @@ android {
     }
     (kotlinOptions as (KotlinJvmOptions)).apply {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    tasks.whenTaskAdded {
+        if(name.startsWith("bundle")){
+            val renameTaskName = "rename${name.capitalize()}Aab"
+            val flavor  = name.substring("bundle".length).decapitalize()
+            tasks.create(renameTaskName,Copy::class){
+                val path = "$buildDir/outputs/bundle/$flavor/"
+                from(path)
+                include("app.aab")
+                destinationDir = file("$buildDir/outputs/renamedBundle/")
+                rename("app.aab","$MAX_VERSION.$MIN_VERSION.$PATCH_VERSION $flavor.aab")
+            }
+            finalizedBy(renameTaskName)
+        }
     }
 }
 

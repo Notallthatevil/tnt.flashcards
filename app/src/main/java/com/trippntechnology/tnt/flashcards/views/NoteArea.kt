@@ -22,9 +22,9 @@ open class NoteArea(
 
 
     override fun draw(canvas: Canvas) {
-        if (staffYCenter < 0f) {
-            throw IllegalArgumentException("Need to set staffYCenter before calling draw")
-        }
+//        if (staffYCenter < 0f) {
+//            throw IllegalArgumentException("Need to set staffYCenter before calling draw")
+//        }
         if (!posSet) {
             throw IllegalArgumentException("You must call setDrawSpace before you can draw")
         }
