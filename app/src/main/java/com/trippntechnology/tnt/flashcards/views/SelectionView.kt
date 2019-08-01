@@ -5,10 +5,12 @@ import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
 import android.view.MotionEvent
-import com.trippntechnology.tnt.flashcards.objects.noteconfiguration.NoteConfiguration
 import com.trippntechnology.tnt.flashcards.objects.enums.clefvalue.ClefValue
 import com.trippntechnology.tnt.flashcards.objects.note.Note
+import com.trippntechnology.tnt.flashcards.objects.noteconfiguration.NoteConfiguration
 import com.trippntechnology.tnt.flashcards.util.view.BaseView
+import kotlin.math.min
+import kotlin.math.roundToInt
 
 class SelectionView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
     BaseView(context, attrs, defStyleAttr) {
@@ -28,6 +30,28 @@ class SelectionView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
             val selectableNote = SelectableNoteArea(context, STROKE_WIDTH, LINE_SPACING, it)
             selectableNotes.add(selectableNote)
         }
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        val desiredWidth = staffArea.CLEF_WIDTH * 1.25f + noteArea.NOTE_BASE_WIDTH
+        val desiredHeight = LINE_SPACING * 15 + staffSpacing + dpToPx(16f)
+        val widthMode = MeasureSpec.getMode(widthMeasureSpec)
+        val heightMode = MeasureSpec.getMode(heightMeasureSpec)
+        val widthSize = MeasureSpec.getSize(widthMeasureSpec)
+        val heightSize = MeasureSpec.getSize(heightMeasureSpec)
+        val width = when (widthMode) {
+            MeasureSpec.EXACTLY -> widthSize
+            MeasureSpec.AT_MOST -> min(widthSize, desiredWidth.roundToInt())
+            MeasureSpec.UNSPECIFIED -> desiredWidth.roundToInt()
+            else -> throw UnsupportedOperationException("Width didn't receive a value")
+        }
+        val height = when (heightMode) {
+            MeasureSpec.EXACTLY -> heightSize
+            MeasureSpec.AT_MOST -> min(heightSize, desiredHeight.roundToInt())
+            MeasureSpec.UNSPECIFIED -> desiredHeight.roundToInt()
+            else -> throw UnsupportedOperationException("Height didn't receive a value")
+        }
+        setMeasuredDimension(width, height)
     }
 
     override fun onDraw(canvas: Canvas?) {
