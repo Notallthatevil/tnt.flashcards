@@ -1,8 +1,8 @@
 <resources>
-    <dimen name="selection_view_line_space">14dp</dimen>
+    <dimen name="selection_view_line_space">10dp</dimen>
     <dimen name="selection_view_stroke_width">1dp</dimen>
 
-    <dimen name="flash_card_line_space">20dp</dimen>
+    <dimen name="flash_card_line_space">16dp</dimen>
     <dimen name="flash_card_stroke_width">2dp</dimen>
 
 </resources>
