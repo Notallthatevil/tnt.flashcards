@@ -3,12 +3,11 @@ package com.trippntechnology.tnt.flashcards.ux.fragments.main.flashcards
 import android.view.View
 import android.widget.Button
 import androidx.lifecycle.MutableLiveData
+import com.trippntechnology.tnt.androidbaseutils.ux.livedata.SingleLiveEvent
+import com.trippntechnology.tnt.androidbaseutils.ux.viewmodels.BaseViewModel
 import com.trippntechnology.tnt.flashcards.database.NoteConfigurationRepository
-import com.trippntechnology.tnt.flashcards.objects.enums.notevalue.NoteValue
 import com.trippntechnology.tnt.flashcards.objects.note.Note
 import com.trippntechnology.tnt.flashcards.objects.noteconfiguration.NoteConfiguration
-import com.trippntechnology.tnt.flashcards.util.livedata.SingleLiveEvent
-import com.trippntechnology.tnt.flashcards.util.viewmodels.BaseViewModel
 import com.vikingsen.inject.viewmodel.ViewModelInject
 import kotlinx.coroutines.launch
 

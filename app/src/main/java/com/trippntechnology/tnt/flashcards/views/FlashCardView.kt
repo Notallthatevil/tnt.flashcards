@@ -4,11 +4,11 @@ import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
 import androidx.lifecycle.MutableLiveData
+import com.trippntechnology.tnt.androidbaseutils.ux.livedata.SingleLiveEvent
 import com.trippntechnology.tnt.flashcards.objects.cardpacket.CardPacket
 import com.trippntechnology.tnt.flashcards.objects.enums.clefvalue.ClefValue
 import com.trippntechnology.tnt.flashcards.objects.enums.notevalue.NoteValue
 import com.trippntechnology.tnt.flashcards.objects.note.Note
-import com.trippntechnology.tnt.flashcards.util.livedata.SingleLiveEvent
 import com.trippntechnology.tnt.flashcards.util.view.BaseView
 import timber.log.Timber
 import java.util.*

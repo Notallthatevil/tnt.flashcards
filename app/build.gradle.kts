@@ -61,6 +61,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":tntandroidbaseutils"))
+
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.41")
     implementation("androidx.appcompat:appcompat:1.0.2")

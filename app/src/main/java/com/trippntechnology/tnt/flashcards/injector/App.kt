@@ -1,9 +1,9 @@
 package com.trippntechnology.tnt.flashcards.injector
 
 import android.app.Application
+import com.trippntechnology.tnt.androidbaseutils.ux.log.DebugTree
+import com.trippntechnology.tnt.androidbaseutils.ux.log.ReleaseTree
 import com.trippntechnology.tnt.flashcards.BuildConfig
-import com.trippntechnology.tnt.flashcards.util.log.DebugTree
-import com.trippntechnology.tnt.flashcards.util.log.ReleaseTree
 import timber.log.Timber
 
 class App:Application() {

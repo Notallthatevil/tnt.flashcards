@@ -9,10 +9,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.trippntechnology.tnt.androidbaseutils.ux.fragments.BaseFragment
 import com.trippntechnology.tnt.flashcards.R
 import com.trippntechnology.tnt.flashcards.databinding.FragmentNoteConfigurationListViewBinding
 import com.trippntechnology.tnt.flashcards.injector.Injector
-import com.trippntechnology.tnt.flashcards.util.fragments.BaseFragment
 import com.trippntechnology.tnt.flashcards.ux.adapters.NoteConfigurationListAdapter
 import com.vikingsen.inject.viewmodel.ViewModelFactory
 import timber.log.Timber

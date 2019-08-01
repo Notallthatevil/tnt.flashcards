@@ -7,14 +7,13 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
+import com.trippntechnology.tnt.androidbaseutils.ux.fragments.BaseFragment
 import com.trippntechnology.tnt.flashcards.R
 import com.trippntechnology.tnt.flashcards.databinding.FragmentEditConfigBinding
 import com.trippntechnology.tnt.flashcards.injector.Injector
-import com.trippntechnology.tnt.flashcards.util.fragments.BaseFragment
 import com.trippntechnology.tnt.flashcards.ux.fragments.main.noteeditconfig.NoteEditConfigViewModel.Companion.EVENT_FINISHED
 import com.trippntechnology.tnt.flashcards.ux.fragments.main.noteeditconfig.NoteEditConfigViewModel.Companion.EVENT_SAVE
 import com.vikingsen.inject.viewmodel.ViewModelFactory
-import timber.log.Timber
 import javax.inject.Inject
 
 class NoteEditConfigFragment : BaseFragment() {
