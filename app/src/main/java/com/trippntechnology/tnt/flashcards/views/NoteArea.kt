@@ -29,8 +29,8 @@ open class NoteArea(
             throw IllegalArgumentException("You must call setDrawSpace before you can draw")
         }
 
-        ledgerLineArea.bounds.left = bounds.left
-        ledgerLineArea.bounds.right = bounds.right
+        ledgerLineArea.bounds.left = bounds.left - dpToPx(2f)
+        ledgerLineArea.bounds.right = bounds.right + dpToPx(2f)
         if (bounds.bottom < staffYCenter) {
             //Stem down
             stemArea.bounds.left = bounds.left + strokeWidth * .35f
@@ -76,7 +76,7 @@ open class NoteArea(
         canvas.restore()
     }
 
-    fun setDrawSpace(noteCenterX:Float,noteCenterY:Float){
+    fun setDrawSpace(noteCenterX: Float, noteCenterY: Float) {
         posSet = true
         bounds.left = noteCenterX - NOTE_BASE_WIDTH / 2
         bounds.right = bounds.left + NOTE_BASE_WIDTH

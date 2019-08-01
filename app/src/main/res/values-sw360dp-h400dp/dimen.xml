@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="selection_view_line_space">18dp</dimen>
+    <dimen name="selection_view_stroke_width">1dp</dimen>
+
+    <dimen name="flash_card_line_space">34dp</dimen>
+    <dimen name="flash_card_stroke_width">4dp</dimen>
+
+</resources>
