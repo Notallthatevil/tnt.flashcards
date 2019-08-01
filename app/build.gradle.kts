@@ -8,11 +8,11 @@ plugins {
 }
 apply(plugin = "androidx.navigation.safeargs.kotlin")
 
-val VERSION_CODE = 3
+val VERSION_CODE = 4
 
 val MAX_VERSION = "0"
 val MIN_VERSION = "1"
-val PATCH_VERSION = "2"
+val PATCH_VERSION = "3"
 
 android {
     compileSdkVersion(28)
