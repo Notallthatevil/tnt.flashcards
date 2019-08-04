@@ -1,10 +1,10 @@
 package com.trippntechnology.tnt.flashcards.ux.fragments.main.noteconfigurationlist
 
 import androidx.lifecycle.MutableLiveData
-import com.trippntechnology.tnt.androidbaseutils.ux.livedata.SingleLiveEvent
-import com.trippntechnology.tnt.androidbaseutils.ux.viewmodels.BaseViewModel
 import com.trippntechnology.tnt.flashcards.database.NoteConfigurationRepository
 import com.trippntechnology.tnt.flashcards.objects.noteconfiguration.NoteConfiguration
+import com.trippntechnology.tnt.tntbaseutils.livedata.SingleLiveEvent
+import com.trippntechnology.tnt.tntbaseutils.viewmodels.BaseViewModel
 import com.vikingsen.inject.viewmodel.ViewModelInject
 
 class NoteConfigurationListViewModel @ViewModelInject constructor(noteConfigurationRepository: NoteConfigurationRepository) :

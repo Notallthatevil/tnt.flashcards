@@ -24,6 +24,12 @@ android {
         versionCode = VERSION_CODE
         versionName = "$MAX_VERSION.$MIN_VERSION.$PATCH_VERSION"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = mapOf(Pair("room.schemaLocation","$projectDir/schemas"))
+            }
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -61,7 +67,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":tntandroidbaseutils"))
+    implementation(project(":tntbaseutils-release"))
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.41")
@@ -80,7 +86,7 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.1.0-beta02")
     implementation("androidx.navigation:navigation-ui-ktx:2.1.0-beta02")
     //Cardview
-    implementation("com.google.android.material:material:1.1.0-alpha08")
+    implementation("com.google.android.material:material:1.1.0-alpha09")
     //Timber
     implementation("com.jakewharton.timber:timber:4.7.1")
     //Coroutines

@@ -9,10 +9,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
-import com.trippntechnology.tnt.androidbaseutils.ux.fragments.BaseFragment
 import com.trippntechnology.tnt.flashcards.R
 import com.trippntechnology.tnt.flashcards.databinding.FragmentFlashCardsBinding
 import com.trippntechnology.tnt.flashcards.injector.Injector
+import com.trippntechnology.tnt.tntbaseutils.fragments.BaseFragment
 import com.vikingsen.inject.viewmodel.ViewModelFactory
 import javax.inject.Inject
 

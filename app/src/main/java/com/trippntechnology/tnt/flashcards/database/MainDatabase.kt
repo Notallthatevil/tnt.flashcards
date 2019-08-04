@@ -8,7 +8,9 @@ import com.trippntechnology.tnt.flashcards.objects.noteconfiguration.NoteConfigu
 
 @Database(
     entities = [NoteConfiguration::class],
-    version = 1
+    version = 1,
+    exportSchema = true
+
 )
 abstract class MainDatabase : RoomDatabase() {
     abstract val NoteConfigurationDao: NoteConfigurationDao

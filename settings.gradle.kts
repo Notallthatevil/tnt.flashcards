@@ -1,2 +1,2 @@
-include( ":app",":tntandroidbaseutils")
+include( ":app",":tntbaseutils-release")
 rootProject.name="tnt.flashcards"
